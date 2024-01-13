@@ -1,0 +1,17 @@
+import React from "react";
+import "./Co2Calculator.scss";
+
+export default function Co2Calculator() {
+  return (
+    <div className="m-5 p-5">
+      <h2>CO2 SOLUBILITY CALCULATOR</h2>
+      <ul>
+        <li>
+          <a className="co2Calculator-links__item" href="/">
+            Online CO2 Solubility Calculator
+          </a>
+        </li>
+      </ul>
+    </div>
+  );
+}

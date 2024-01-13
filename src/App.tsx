@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import NavBar from "./components/NavBar/NavBar";
 import Supcrtbl from "./pages/Supcrtbl/Supcrtbl";
+import PHREEQC from "./pages/PHREEQC/PHREEQC";
+// import Co2Calculator from "./pages/Co2Calculator/Co2Calculator";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/Supcrtbl" element={<Supcrtbl />} />
+          <Route path="/PHREEQC" element={<PHREEQC />} />
+          {/* <Route path="/Co2Calculator" element={<Co2Calculator />} /> */}
         </Routes>
       </div>
     </Router>

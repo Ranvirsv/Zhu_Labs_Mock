@@ -54,7 +54,7 @@ export default function Supcrtbl() {
           Please refer the following article when you use of the sᴜᴘᴄʀᴛʙʟ code
           and accompanying database:
         </p>
-        <p className="text-primary">
+        <p className="references">
           Zimmer, K., Zhang, Y.L., Lu, P., Chen, Y.Y., Zhang, G.R., Dalkilic, M.
           and Zhu, C. (2016) SUPCRTBL: A revised and extended thermodynamic
           dataset and software package of SUPCRT92.{" "}
@@ -70,7 +70,7 @@ export default function Supcrtbl() {
           We strongly recommend citing together with Johnson et al. (1992) when
           using sᴜᴘᴄʀᴛʙʟ:
         </p>
-        <p className="text-primary">
+        <p className="references">
           Johnson, J.W., Oelkers, E.H. and Helgeson, H.C. (1992) SUPCRT92 - A
           software package for calculating the standard molal thermodynamic
           properties of minerals, gases, aqueous species, and reactions from

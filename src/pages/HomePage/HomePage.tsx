@@ -59,7 +59,7 @@ export default function HomePage() {
       </p>
       <hr />
       <div className="mb-3">
-        <a className="linkText" href="">
+        <a className="linkText" href="/PHREEQC">
           PHREEQC Online
         </a>
       </div>
@@ -121,7 +121,7 @@ export default function HomePage() {
       </p>
       <hr />
       <div className="mb-3">
-        <a className="linkText" href="">
+        <a className="linkText" href="/co2Calculator">
           Rates Calculator
         </a>
       </div>
