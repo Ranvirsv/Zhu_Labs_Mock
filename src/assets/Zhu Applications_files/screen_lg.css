@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+.card .content { padding: 10px; }
+.card.one .content { padding-left: 40px; }
+
+/*600px */
+@media screen and (max-width: 37.5em) {
+.maincontent { width: 100%;}	
+
+article { padding: 0 20px; }
+.fullcontent article { padding-left: 20px; }
+
+.leftnav { width: 100%; background-color:#ddd; padding: 5px 0; border-bottom: 1px solid #bbb; }
+.leftnav h1 {
+	font-size: 1em;
+	font-weight: bold;
+	display:inline;
+	padding: 0 24px 0 10px;
+	margin: 0;
+	background: url(../img/leftlibg.jpg) no-repeat right 5px;
+}
+.leftnav ul {
+	display:inline;
+	padding: 10px 0px;
+}
+.leftnav ul li {
+	display:inline-block;
+	padding: 0 24px 0 10px;
+	background: url(../img/leftlibg.jpg) no-repeat right 5px;
+}
+.leftnav ul li:last-child {
+	background-image: none;
+}
+.rightbox {
+	float:none;
+	margin-left: 0;	
+}
+}
+

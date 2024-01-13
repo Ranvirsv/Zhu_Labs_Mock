@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+.threecol .content { padding-top: 20px; padding-left: 30px; padding-bottom: 30px; }
+.threecol.one .content { padding-left: 30px; }
+
+.card .content { padding-top: 20px; padding-left: 20px; padding-bottom: 30px; }
+.card.one .content { padding-left: 30px; }
+
+table th.w1, table th.w2 {
+	width: 30%;
+}
+
+/*800px */
+@media screen and (max-width: 50em) {
+
+.card .imgleft {
+	float: none;
+	margin-right: 0px;
+	display: block;	
+}
+.card {
+	width: 100%;
+	float: none;
+	padding: 10px 10px 0px 0px;
+	border-top: 1px solid #ccc; 
+}
+
+.card .content { padding: 0px 0px 5px 10px; }
+.card.one .content { padding-left: 10px; }
+}

@@ -1,0 +1,721 @@
+/*****************************************
+ * Largely from template by IU Office of Creative Services
+ * Adapted by Jeannette Smedberg, BCS Advertising
+ * CSS for screen delivery
+ *****************************************/
+
+/* REDEFINED STYLES */
+
+body {
+     font-family: Arial, Helvetica, sans-serif;
+     line-height: 1.2em;
+     text-align: center;
+     margin: 0;
+     padding: 0;
+     color: #000;
+     /* IE5.x uses this */
+     font-size: medium;
+     /* IE5.x is confused by this */
+     voice-family: "\"}\"";
+     voice-family: inherit;
+     /* Modern browsers use this */
+     font-size: medium;
+     background: url(white-shadow.jpg) repeat-x;
+     background-position: 0px 88px;
+     background-color: #fff;
+
+}
+/* Be Kind to Opera rule */
+html>body {
+     font-size: medium;
+}
+
+
+p, li, td, textarea, body {
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: .9em;
+     line-height: 1.4em;
+     text-align: left;
+     margin: 0px 0px 12px 0px;
+     padding: 0px 0px 0px 0px;
+     color: #000;
+}
+
+h1 {
+     font-size: 1.5em;
+     line-height: 1.2em;
+     margin: 0px 0px 20px 0px;
+     padding: 0px 0px 0px 0px;
+}
+h2 {
+     font-size: 1.2em;
+     line-height: 1.2em;
+     margin: 20px 0px 6px 0px;
+     padding: 0px 0px 0px 0px;
+     font-weight: bold;
+}
+h3 {
+     font-size: 1.1em;
+     line-height: 1.4em;
+     margin: 20px 0px 6px 0px;
+     padding: 0px 0px 0px 0px;
+     font-weight: bold;
+}
+h4 {
+     font-size: 1em;
+     line-height: 1.4em;
+     margin: 26px 0px 18px 0px;
+     padding: 6px 0px 0px 0px;
+     font-weight: bold;
+     font-style: italic;
+     border-top: 2px dotted #996666;
+}
+h5 {
+     font-size: .9em;
+     line-height: 1.4em;
+     margin: 12px 0px 0px 0px;
+     font-weight: bold;
+}
+h6 {
+     font-size: 0.9em;
+     line-height: 1.2em;
+     margin: 6px 0px 0px 0px;
+     font-style: italic;
+     padding: 0px 34px 5px 0px;
+     color: #978476;
+}
+
+a {
+     color: #990000;
+     text-decoration: none;
+}
+a:hover {
+     color: #990000;
+     text-decoration: underline;
+}
+img {
+     border: 0;
+}
+ul{
+     list-style-type:square;
+     margin: 0px 0px 12px 0px;
+     padding: 0px 0px 0px 1.5em;
+}
+li {
+     margin: 3px 0px 3px 0px;
+}
+acronym {
+     border-bottom: 1px dashed #900;
+     text-decoration: none;
+}
+
+/* CUSTOM STYLES */
+
+/****************************************
+ * Branding Bar
+ ****************************************/
+
+#identity {
+     background-color: #7d120c;
+     width: auto;
+     height: 44px;
+}
+#identity hr {
+     display: none;
+}
+#identity #signature {
+     width: 800px;
+     margin: 0 auto;
+     padding: 0px 0px 0px 0px;
+     text-align: left;
+}
+#identity #signature a {
+     display: block;
+     width: 250px;
+     height: 44px;
+     background: url(iub_crimson.gif) no-repeat 20px 0;
+     position: relative;
+     left: -20px;
+}
+#identity #signature a img {
+     display: none;
+}
+
+#identity #topbar  {
+     clear: both;
+     margin: 0px 0px 0px 0px;
+     padding: 0px 0px 0px 0px;
+     border: 0;
+     height: 44px;
+     background: url(topbar.jpg) repeat-x;
+     background-position: center;
+}
+
+
+#main {
+     background-color: #fff;
+     width: 800px;
+     margin: 0 auto;
+     padding: 0px 0px 0px 0px;
+     text-align: left;
+}
+
+body#home #main {
+     background: url(../img/head-background.jpg);
+}
+
+/****************************************
+ * Header
+ ****************************************/
+
+#main #header {
+          display: none;
+     padding: 0px 0px 0px 0px;
+     margin: 0;
+     width: auto;
+     height: 100%;
+}
+#main #header #sitename {
+     float: left;
+}
+#main #header #sitename h1 {
+     margin: 0px 0px 0px 0px;
+     padding: 0px 0px 0px 0px;
+}
+#main #header #sitename h1 a {
+     display: block;
+}
+#main #header #sitename h1 a span {
+     display: none;
+}
+
+#main #break {
+     clear: both;
+     border: 0;
+     margin: 0;
+     padding: 0;
+}
+
+
+
+/****************************************
+ * Primary Navigation - all pages
+ ****************************************/
+
+#main #nav {
+          display: none;
+     float: right;
+     width: 636px;
+     padding: 0px 0px 0px 0px;
+     margin: 0px 0px 0px 0px;
+}
+
+#main #nav ul {
+     margin: 0px 0px 0px 0px;
+     padding: 0px 0px 0px 0px;
+     list-style-type: none;
+}
+
+#main #nav ul li {
+     margin: 0px 0px 0px 0px;
+     padding: 0px 0px 0px 0px;
+     float: left;
+}
+
+#main #nav ul li a {
+     float: left;
+     text-align: center;
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: 12px;
+     line-height: 24px;
+     display: block;
+     width: 90px;
+     height: 32px;
+     color: #fff;
+     text-decoration: none;
+     margin: 0px 0px 0px 0px;
+     padding: 0px 0px 0px 0px;
+     border-right: 1px solid #FFF;
+     background: url(tabs.gif) no-repeat;
+     background-position: bottom left;
+}
+
+body#home #main #nav ul li a {
+     border-right: 1px solid #c6110c;
+     background: url(../img/tabs-r.gif) no-repeat;
+}
+
+#main #nav ul li a:hover {
+     background-position: bottom center;
+}
+body#home #main #nav ul li a:hover {
+     background-position: bottom center;
+}
+
+#main #nav #nav-rec a {
+     border-right: none
+}
+body#home #main #nav #nav-rec a {
+     border-right: none
+}
+
+#department #main #nav #nav-dep a, #people #main #nav-peo a, #research #main #nav-res a, #education #main #nav-edu a, #courses #main #nav-cou a, #news #main #nav-new a, #resources #main #nav-rec a {
+     background-position: bottom right;
+     font-weight: bold;
+}
+
+
+/****************************************
+ * Left column of links mostly - internal only
+ ****************************************/
+
+#main #left-column {
+     float: left;
+     width: 164px;
+     margin: 0px;
+     padding: 0px;
+}
+
+#main #left-column #home-block {
+     margin: 0px;
+     padding: 0px 0px 8px 0px;
+     background-color: #7d120c;
+}
+
+#main #left-column #home-block p {
+     margin: 0px;
+     padding: 0px;
+     display: block;
+}
+
+#main #left-column #home-block p a {
+     margin: 0px;
+     padding: 10px 10px 10px 15px;
+     color: #fff;
+     font-variant: small-caps;
+     font-family: "Times New Roman", Times, serif;
+     font-size: 16px;
+     letter-spacing: .15em;
+     line-height: 18px;
+     font-weight: bold;
+     text-decoration: none;
+     display: block;
+     background: url(home-box.jpg);
+     background-position: top left;
+}
+
+#main #left-column #home-block p a:hover {
+     text-decoration: underline;
+     background-position: top right;
+}
+
+#main #left-column #field {
+          display: none;
+     width: 164px;
+     margin: 0px;
+     padding: 0px;
+     background-color: #b09d7f;
+}
+
+#main #left-column #field p {
+          display: none;
+     font-size: 12px;
+     line-height: 1.4em;
+     font-weight: bold;
+     margin: 0px;
+     padding: 10px 10px 10px 15px;
+     color: #FFFFFF;
+
+}
+#main #left-column #field p a {
+          display: none;
+     color: #FFFFFF;
+}
+
+#main #left-column #internal-nav {
+          display: none;
+     clear: left;
+     width: 164px;
+     margin: -6px 0px 0px 0px;
+     padding: 0px 0px -8px 0px;
+     display: block;
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: 12px;
+     line-height: 1.2em;
+
+}
+
+#main #left-column #internal-nav p {
+          display: none;
+     font-size: 12px;
+     line-height: 1.2em;
+     margin: 0px 0px 0px 0px;
+     padding: 9px 0px 10px 15px;
+
+}
+
+#main #left-column #internal-nav ul {
+          display: none;
+     font-weight: bold;
+     margin: 0px 0px 0px 0px;
+     padding: 5px 0px 5px 30px;
+     color: #FFFFFF;
+     background-color: #b09d7f;
+}
+
+#main #left-column #internal-nav ul a {
+          display: none;
+     color: #FFFFFF;
+}
+
+#main #left-column #internal-nav ul li {
+          display: none;
+     font-size: 12px;
+     line-height: 1.2em;
+     margin: 0px 0px 0px 0px;
+     padding: 6px 8px 6px 0px;
+     color: #FFFFFF;
+}
+
+#main #left-column #internal-nav ul li ul {
+          display: none;
+     font-weight: bold;
+     list-style-type: circle;
+     margin: 0px 7px 0px 0px;
+     padding: 2px 0px 2px 13px;
+     color: #ffffff;
+}
+
+#main #left-column #internal-nav ul li ul li {
+          display: none;
+     font-size: 12px;
+     line-height: 1.2em;
+     margin: 0px 0px 0px 0px;
+     padding: 2px 0px 2px 0px;
+
+}
+
+#main #left-column #toolkit {
+          display: none;
+     float: left;
+     font-size: .8em;
+     width: 164px;
+     padding: 10px 0px 10px 0px;
+     margin:  7px 0px 30px 0px;
+}
+#main #left-column #toolkit #utilities {
+     float: left;
+     padding: 0px 0px 0px 0px;
+     margin: 0px 0px 0px 0px;
+}
+#main #left-column #toolkit form {
+     margin: 0;
+     padding: 0px 0px 0px 0px;
+}
+#main #left-column #toolkit form fieldset {
+     border: 0;
+     margin: 0;
+     padding: 0px 0px 0px 0px;
+     line-height: 16px;
+}
+#main #left-column #toolkit form fieldset #searchbox {
+     margin: 2px 0px 0px 0px;
+     padding:0;
+}
+#main #left-column #toolkit form fieldset #go {
+     padding: 0px 0px 0px 0px;
+     margin: 4px 0px 2px 0px;
+
+}
+
+
+#section-head {
+          display: none;
+     float: right;
+     height: 100px;
+     padding: 10px 10px 0px 0px;
+     margin:  0px;
+     font-weight: bold;
+     color: #b09d7f;
+}
+
+/****************************************
+ * Content
+ ****************************************/
+
+#main #content {
+     clear: right;
+     margin:  -26px 0px 0px 190px;
+     padding: 0px 0px 20px 0px;
+}
+
+
+/***** photos *****/
+
+#photo-left {
+     float: left;
+     margin: 10px 10px 0px 0px;
+     padding: 0px;
+}
+
+#photo-right {
+     float: right;
+     margin: 10px 0px 0px 10px;
+     padding: 10px;
+}
+
+#photo-wide {
+     margin: 10px 0px 0px -190px;
+     padding: 0px;
+}
+
+.photocaption {
+     font-size: .75em;
+     line-height: 1.3em;
+     font-weight: bold;
+     font-family: Arial, Helvetica, sans-serif;
+     clear: both;
+     padding: 2px 0px 10px 0px;
+}
+
+.photo {
+     display: block;
+     padding: 0px;
+     margin: 0px;
+}
+
+.featurephoto {
+     display: block;
+     padding: 0px;
+     margin: 0px -19px 0px -19px;
+}
+
+
+
+/****************************************
+ * See Also Box(es) - internal
+ ****************************************/
+
+#main #content #box {
+          display: none;
+     clear: right;
+     float: right;
+     width: 180px;
+     border: 1px solid #B0B2B4;
+     margin: 10px 0 10px 10px;
+     padding: 8px 8px 8px 8px;
+     background-color: #FFFFFF;
+}
+
+#main #content #box h3 {
+          display: none;
+     font-family: Arial, Helvetica, sans-serif;
+     font-weight: bold;
+     display: block;
+     letter-spacing: normal;
+     font-size: 100%;
+     color: #fff;
+     background-color: #666;
+     margin: 0px 0px 0px 0px;
+     padding: 2px 0px 2px 10px;
+}
+#main #content #box span {
+          display: none;
+     color: white;
+}
+
+#main #content #box p, #main #box hr {
+          display: none;
+     font-size: 90%;
+     line-height: 1.2em;
+     margin: 7px 12px 7px 10px;
+     padding: 0px 0px 0px 0px;
+}
+
+#main #content #box h5 {
+          display: none;
+     font-family: Arial, Helvetica, sans-serif;
+     font-weight: bold;
+     font-size: 90%;
+     background-color: #EBE9ED;
+     padding: 2px 12px 3px 10px;
+     margin: 8px 0px 6px 0px;
+}
+
+#main #content #box h5 a {
+     font-size: 90%;
+}
+
+
+
+
+/****************************************
+ * Footer
+ ****************************************/
+
+#footer {
+     clear: both;
+     width: auto;
+     margin: 0px 0 0 0;
+}
+#footer hr {
+     display: none;
+}
+#footer #copyright {
+     width: 800px;
+     height: 50px;
+     margin: 0;
+     text-align: left;
+     border-top: 1px solid #b7b7b7;
+     background: #fff;
+}
+
+#footer #copyright a {
+     color: #990000;
+     text-decoration: none;
+}
+#footer #copyright a:hover {
+     text-decoration: underline;
+}
+#footer #copyright #blockiu {
+     padding: 6px 4px 0 20px;
+     float: left;
+}
+#footer #copyright #blockiu a {
+     display: block;
+     width: 22px;
+     height: 28px;
+     background: url(blockiu_white.gif) no-repeat;
+	margin: 0px;
+	padding: 0px;
+}
+#footer #copyright #blockiu a img {
+     display: block;
+}
+
+#footer #copyright #statement {
+     font-size: .75em;
+     margin: 0 0 0 30px;
+     padding: 11px 0 0 0;
+}
+
+
+/* GENERAL PURPOSE CLASSES */
+
+.clear {
+     clear: both;
+}
+.hide {
+     display: none;
+     visibility: hidden;
+}
+.right {
+     float: right;
+     clear: right;
+}
+
+.nospace {
+     line-height: 0px;
+     margin: 0px 0px 0px 0px;
+     padding:  0px 0px 0px 0px;
+}
+.stat {
+     font-family: "Times New Roman", Times, serif;
+     font-size: 85px;
+     font-weight: bold;
+     line-height: 70px;
+     color: #999999;
+}
+.item {
+     line-height: 130%;
+     font-weight: normal;
+     font-size: 80%;
+     margin: 8px 0px 8px 0px;
+     padding:  0px 0px 0px 0px;
+}
+.item a {
+     font-weight: bold;
+}
+
+.more {
+     padding: 0px 10px 0px 1px;
+     background: url(arrow.gif) no-repeat center right;
+}
+
+.large_serif {
+     font-family: "Times New Roman", Times, serif;
+     font-size: 1.4em;
+     line-height: 1.2em;
+     font-style: italic;
+     margin: 0px;
+     padding: 0px;
+}
+
+.large_green_sans {
+     color: #006600;
+     font-weight: bold;
+     font-size: 24px;
+    line-height: 1.1em;
+     letter-spacing: -.05em;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+
+
+
+/* Added for faculty pages */
+
+#faculty h1 {
+     font-family: "Times New Roman", Times, serif;
+     font-variant: small-caps;
+     font-weight: normal;
+     font-style: normal;
+     font-size: 1.7em;
+     line-height: 100%;
+}
+
+#faculty h2 {
+     font-family: "Times New Roman", Times, serif;
+     font-size: 1.1em;
+     font-weight: normal;
+     line-height: 100%;
+     font-style: italic;
+     margin: 0px 0px 8px 0px;
+     padding: 0px 40px 0px 30px;
+     text-indent: -30px;
+}
+
+#faculty h4 {
+     font-weight: bold;
+     font-style: normal;
+     border-top: none;
+}
+
+#faculty h5 {
+     font-weight: bold;
+     font-style: italic;
+}
+
+.contact {
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: .8em;
+     font-weight: bold;
+     margin: 20px 0px 0px 0px;
+     padding: 0px 0px 0px 0px;
+
+}
+
+
+/* text styles: */
+
+.indent {
+     margin: 6px 0px 6px 0px;
+     padding: 0px 0px 0px 25px;
+     text-indent: -25px;
+     color: #000;
+}
+
+.text_selfauthor {
+     font-weight: bold;
+}
+
+

@@ -1,0 +1,44 @@
+.homeHeader{
+    font-family: 'BentonSansCond',Verdana,Arial,sans-serif;
+    color: #795548;
+    letter-spacing: 4px;
+    font-weight: 500;
+}
+
+.img-fluid{
+    width: 45%;
+    height: auto;
+}
+
+.mapOfUsers{
+    margin-left: 2rem;
+}
+
+.subHeading{
+    font-size: 14px;
+    line-height: 1.1;
+    color: #795548;
+}
+
+.linkText{
+    font-size: 18px;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: #337ab7;
+    text-decoration: none;
+    cursor: pointer;
+}
+.linkText:hover{
+    text-decoration: underline;
+}
+
+.linkBetweenPara{
+    font-weight: bold;
+    font-size: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    color: #930;
+    cursor: pointer;
+    text-decoration: none;
+}

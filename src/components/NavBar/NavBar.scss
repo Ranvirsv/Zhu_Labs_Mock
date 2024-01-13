@@ -1,0 +1,22 @@
+.navBar{
+    color: white;
+    background-color: #21202d;
+    display: block;
+    align-content: center;
+    padding: 1rem;
+
+    &__itemList{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        transform: translateX(15%);
+        gap: 2rem;
+
+        &__item{
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+}

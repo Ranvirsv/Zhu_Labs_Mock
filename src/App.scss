@@ -1,0 +1,19 @@
+.header{
+    border-block-start-width: 4px;
+    border-block-start-style: solid;
+    border-block-start-color: #990000;
+    
+    &__text{
+        background-color: #7A1705;
+        width: 100vw;
+        &__iub{
+            margin-left: 12%;
+            font-family: "BentonSansCondRegular", "Arial Narrow", Arial, Helvetica, sans-serif;
+        }
+    }
+    &__logo{
+        height: 90px;
+        position: absolute;
+        transform: translateX(100%);
+    }
+}

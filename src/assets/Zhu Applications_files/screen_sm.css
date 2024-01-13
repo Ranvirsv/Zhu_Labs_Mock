@@ -1,0 +1,123 @@
+@charset "UTF-8";
+body { background-image: none;  }
+/* Layout Small Screens */
+
+
+header { height: 60px; }
+
+header a.logo {
+	width: 186px; height: 60px;
+	top: 0px; left: 0px;
+	background-image: url(../img/logo_sm.png);
+}
+	
+.threecol {
+	width: auto;
+	float: none;
+	padding: 20px 0px 20px 20px;
+	border-top: 1px solid #ccc;
+}
+
+.threecol .content { padding: 0px 10px 5px 10px; }
+.threecol.one .content { padding-left: 10px; }
+
+.card {
+	width: auto;
+	float: none;
+	padding: 10px 10px 10px 10px;
+	border-top: 1px solid #ccc;
+}
+.card .content { padding: 10px; }
+.card.one .content { padding-left: 20px; }
+.facebook_sm {
+	background-image:url(../images/FB-Thumbs_sm.png);
+	clear: none;
+	float: left;
+	width: 100%;
+	border: 0px;
+	text-align: center;
+	background-color: #FFFFFF;
+	background-repeat: no-repeat;
+}
+.imgleft {
+	float: none;
+	margin-right: 0px;
+	display:block;	
+}
+.imgright {
+	float: none;
+	margin-left: 0px;	
+	display:block;
+}
+
+.rslides .caption {
+	display:none;
+}
+.courselist {
+	border: none;
+	border-bottom: 1px solid #44697d;
+	margin-top: 15px;
+	padding: 10px 0;
+}
+.courselist h1 {
+	font-size: 1em;
+	font-weight:bold;
+	color:#44697d;
+	margin: 0;
+	padding-bottom: 0;
+	border-bottom: none;
+	letter-spacing:0;
+}
+.courselistfilter {
+	border: 1px dotted #44697d;
+	width: 220px;
+	padding: 10px;
+}
+table th.w1, table th.w2 {
+	width: 30%;
+}
+
+/* Table display for small window */
+	table.faculty, table.faculty thead, table.faculty tbody, table.faculty th, table.faculty td, table.faculty tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	table.faculty thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	table.faculty tr { border: 1px solid #ccc; }
+	
+	table.faculty td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 45%; 
+	}
+	
+	table.faculty td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 35%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	
+	/*
+	Label the data
+	*/ 	 	
+	table.faculty td:nth-of-type(1):before { content: "Faculty Member"; }
+	table.faculty td:nth-of-type(2):before { content: "Contact"; }
+	table.faculty td:nth-of-type(3):before { content: "Research Areas"; }
+
+footer { border-top: 5px solid #75504f; }
+footer p {
+	margin-bottom: 20px;
+}
