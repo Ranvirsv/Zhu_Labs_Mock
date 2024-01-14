@@ -92,7 +92,7 @@ export default function HomePage() {
       </p>
       <hr />
       <div className="mb-3">
-        <a className="linkText" href="">
+        <a className="linkText" href="/CotwoCalculator">
           CO₂ Calculator
         </a>
       </div>
@@ -121,7 +121,7 @@ export default function HomePage() {
       </p>
       <hr />
       <div className="mb-3">
-        <a className="linkText" href="/co2Calculator">
+        <a className="linkText" href="/RateCalculator">
           Rates Calculator
         </a>
       </div>
@@ -131,7 +131,7 @@ export default function HomePage() {
       </p>
       <hr />
       <div className="mb-3">
-        <a className="linkText" href="">
+        <a className="linkText" href="/RateScripts">
           PHREEQC BASIC Rate Scripts
         </a>
       </div>
@@ -149,7 +149,7 @@ export default function HomePage() {
       </p>
       <hr />
       <div className="mb-3">
-        <a className="linkText" href="">
+        <a className="linkText" href="/H2SCalculator">
           H2S Calculator
         </a>
       </div>

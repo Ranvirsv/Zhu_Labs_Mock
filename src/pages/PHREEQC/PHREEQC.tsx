@@ -1,12 +1,12 @@
 import React from "react";
-import "./PHREEQC.scss";
+import "../../App.scss";
 
 export default function PHREEQC() {
   return (
     <div className="m-5 p-5">
       <h2 className="PHREEQC-header">Introduction to ᴘʜʀᴇᴇǫᴄ</h2>
       <div>
-        <ul className="PHREEQC-links">
+        <ul className="App-links">
           {[
             {
               name: "Click here to use the online version of ᴘʜʀᴇᴇǫᴄ",
@@ -20,7 +20,7 @@ export default function PHREEQC() {
             { name: "USGS Software User Rights Notice", url: "/" },
           ].map((elemnt) => (
             <li>
-              <a className="PHREEQC-links__item" href={elemnt.url}>
+              <a className="App-links__item" href={elemnt.url}>
                 {elemnt.name}
               </a>
             </li>
@@ -60,7 +60,7 @@ export default function PHREEQC() {
         <p>
           The following datasets in the pulldown menu are consistent with
           thermodynamic properties in{" "}
-          <a className="PHREEQC-links__item" href="">
+          <a className="App-links__item" href="">
             SUPCRTBL
           </a>
         </p>
@@ -150,7 +150,7 @@ export default function PHREEQC() {
         <p>
           Users can generate databases at P-T ranges of your interest using the
           program{" "}
-          <a className="PHREEQC-links__item" href="">
+          <a className="App-links__item" href="">
             SupPʜʀᴇᴇǫᴄ
           </a>
         </p>
@@ -189,7 +189,7 @@ export default function PHREEQC() {
             dataset and software package of SUPCRT92. Computer and Geosciences
             90:97-111.{" "}
             <a
-              className="PHREEQC-links__item"
+              className="App-links__item"
               href="https://www.sciencedirect.com/science/article/pii/S0098300416300371?via%3Dihub"
             >
               DOI
@@ -200,7 +200,7 @@ export default function PHREEQC() {
             rate equations for geochemical modeling using ᴘʜʀᴇᴇǫᴄ. Computers &
             Geosciences, v133{" "}
             <a
-              className="PHREEQC-links__item"
+              className="App-links__item"
               href="https://www.sciencedirect.com/science/article/pii/S0098300418311853?via%3Dihub"
             >
               DOI
@@ -211,7 +211,7 @@ export default function PHREEQC() {
             to generate customized ᴘʜʀᴇᴇǫᴄ thermodynamic database based on
             Supcrtbl. Computer and Geosciences v143.{" "}
             <a
-              className="PHREEQC-links__item"
+              className="App-links__item"
               href="https://www.sciencedirect.com/science/article/pii/S0098300420305501?via%3Dihub"
             >
               DOI

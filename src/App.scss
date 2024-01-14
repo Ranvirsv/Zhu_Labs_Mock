@@ -17,3 +17,18 @@
         transform: translateX(100%);
     }
 }
+
+.App-links{
+    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: larger;
+    &__item{
+        font-weight: bold;
+        color: #990000;
+        text-decoration: none;
+        list-style: none;
+    }
+}
+
+.references{
+    color: #00008B;
+}

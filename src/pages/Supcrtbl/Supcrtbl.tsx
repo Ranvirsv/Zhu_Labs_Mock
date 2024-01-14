@@ -1,5 +1,5 @@
 import React from "react";
-import "./Supcrtbl.scss";
+import "../../App.scss";
 
 export default function Supcrtbl() {
   return (
@@ -8,7 +8,7 @@ export default function Supcrtbl() {
         Introduction to SUPCRTBL(sᴜᴘᴄʀᴛ - Bloomington)
       </h2>
       <div>
-        <ul className="supcrtlb-links">
+        <ul className="App-links">
           {[
             { name: "Online Version Of Supcrtbl", url: "/" },
             { name: "Download sᴜᴘᴄʀᴛʙʟ For Windows", url: "/" },
@@ -17,7 +17,7 @@ export default function Supcrtbl() {
             { name: "View Changelog of sᴜᴘᴄʀᴛʙʟ", url: "/" },
           ].map((elemnt) => (
             <li>
-              <a className="supcrtlb-links__item" href={elemnt.url}>
+              <a className="App-links__item" href={elemnt.url}>
                 {elemnt.name}
               </a>
             </li>
@@ -60,7 +60,7 @@ export default function Supcrtbl() {
           dataset and software package of SUPCRT92.{" "}
           <em>Computer and Geosciences</em> 90:97-111.
           <a
-            className="supcrtlb-links__item m-2"
+            className="App-links__item m-2"
             href="https://www.sciencedirect.com/science/article/pii/S0098300416300371?via%3Dihub"
           >
             DOI
@@ -90,10 +90,7 @@ export default function Supcrtbl() {
           Informatics, Computing, and Engineering). Many parts are untested, and
           the users assume all responsibilities. We will continue making
           corrections. Kindly send comments and corrections to Chen Zhu at
-          <a
-            className="supcrtlb-links__item m-2"
-            href="mailto:supcrt@indiana.edu"
-          >
+          <a className="App-links__item m-2" href="mailto:supcrt@indiana.edu">
             supcrt@indiana.edu.
           </a>
         </p>
@@ -122,7 +119,7 @@ export default function Supcrtbl() {
           product, or process disclosed, or represents that its use would not
           infringe privately owned rights.
         </p>
-        <p className="supcrtlb-links__item m-2">
+        <p className="App-links__item m-2">
           sᴜᴘᴄʀᴛʙʟ is provided under this Creative Commons closed source license
         </p>
       </div>

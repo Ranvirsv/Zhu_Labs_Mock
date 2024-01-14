@@ -6,7 +6,10 @@ import HomePage from "./pages/HomePage/HomePage";
 import NavBar from "./components/NavBar/NavBar";
 import Supcrtbl from "./pages/Supcrtbl/Supcrtbl";
 import PHREEQC from "./pages/PHREEQC/PHREEQC";
-// import Co2Calculator from "./pages/Co2Calculator/Co2Calculator";
+import CotwoCalculator from "./pages/CotwoCalculator/CotwoCalculator";
+import RateCalculator from "./pages/RateCalculator/RateCalculator";
+import RateScripts from "./pages/RateScripts/RateScripts";
+import H2SCalculator from "./pages/H2SCalculator/H2SCalculator";
 
 function App() {
   return (
@@ -25,7 +28,10 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/Supcrtbl" element={<Supcrtbl />} />
           <Route path="/PHREEQC" element={<PHREEQC />} />
-          {/* <Route path="/Co2Calculator" element={<Co2Calculator />} /> */}
+          <Route path="/CotwoCalculator" element={<CotwoCalculator />} />
+          <Route path="/RateCalculator" element={<RateCalculator />} />
+          <Route path="/RateScripts" element={<RateScripts />} />
+          <Route path="/H2SCalculator" element={<H2SCalculator />} />
         </Routes>
       </div>
     </Router>
