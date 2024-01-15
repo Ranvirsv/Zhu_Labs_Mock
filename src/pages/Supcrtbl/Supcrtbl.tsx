@@ -28,7 +28,7 @@ export default function Supcrtbl() {
             },
             {
               name: "View Changelog of sᴜᴘᴄʀᴛʙʟ",
-              url: "",
+              url: "/",
             },
           ].map((elemnt) => (
             <li>
