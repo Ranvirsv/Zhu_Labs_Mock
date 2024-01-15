@@ -10,11 +10,26 @@ export default function Supcrtbl() {
       <div>
         <ul className="App-links">
           {[
-            { name: "Online Version Of Supcrtbl", url: "/" },
-            { name: "Download sᴜᴘᴄʀᴛʙʟ For Windows", url: "/" },
-            { name: "Download sᴜᴘᴄʀᴛʙʟ For Linux", url: "/" },
-            { name: "Download Tutorial For sᴜᴘᴄʀᴛʙʟ", url: "/" },
-            { name: "View Changelog of sᴜᴘᴄʀᴛʙʟ", url: "/" },
+            {
+              name: "Online Version Of Supcrtbl",
+              url: "/SupcrtblOnlineInputFile",
+            },
+            {
+              name: "Download sᴜᴘᴄʀᴛʙʟ For Windows",
+              url: "http://149.165.154.118/supcrtbl/download_files/SUPCRTBL_windows.zip",
+            },
+            {
+              name: "Download sᴜᴘᴄʀᴛʙʟ For Linux",
+              url: "http://149.165.154.118/supcrtbl/download_files/SUPCRTBL_linux.zip",
+            },
+            {
+              name: "Download Tutorial For sᴜᴘᴄʀᴛʙʟ",
+              url: "http://149.165.154.118/supcrtbl/download_files/Tutorial.zip",
+            },
+            {
+              name: "View Changelog of sᴜᴘᴄʀᴛʙʟ",
+              url: "",
+            },
           ].map((elemnt) => (
             <li>
               <a className="App-links__item" href={elemnt.url}>

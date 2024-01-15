@@ -10,6 +10,7 @@ import CotwoCalculator from "./pages/CotwoCalculator/CotwoCalculator";
 import RateCalculator from "./pages/RateCalculator/RateCalculator";
 import RateScripts from "./pages/RateScripts/RateScripts";
 import H2SCalculator from "./pages/H2SCalculator/H2SCalculator";
+import SupcrtblOnlineInputFile from "./pages/Supcrtbl/SupcrtblOnlineInputFile";
 
 function App() {
   return (
@@ -32,6 +33,10 @@ function App() {
           <Route path="/RateCalculator" element={<RateCalculator />} />
           <Route path="/RateScripts" element={<RateScripts />} />
           <Route path="/H2SCalculator" element={<H2SCalculator />} />
+          <Route
+            path="/SupcrtblOnlineInputFile"
+            element={<SupcrtblOnlineInputFile />}
+          />
         </Routes>
       </div>
     </Router>

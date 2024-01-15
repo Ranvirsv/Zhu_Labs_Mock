@@ -1,0 +1,257 @@
+﻿--CHANGELOG--
+09/27/2020
+        Developed spronsbl_all.dat to include more aqueous, gas and mineral species, but with less internal consistency. 
+        1.      Added 4 gases (NO2,g; SO3,g; HCl,g; HF,g) from RH95, Robie, R. A., & Hemingway, B. S. (1995). 
+        2.      Added 16 clay minerals from Wolery (1978; 1992), including BEIDELLITE-Ca, BEIDELLITE-H, BEIDELLITE-K, BEIDELLITE-Mg, BEIDELLITE-Na, MONTMORILLONITE-Ca,
+                MONTMORILLONITE-K, MONTMORILLONITE-Mg, MONTMORILLONITE-Na, NONTRONITE-Ca, NONTRONITE-Mg, NONTRONITE-H, NONTRONITE-K, NONTRONITE-Na, SAPONITE-Mg, ILLITE
+        3.      Added 23 portland cement-related minerals from MLG07, Matschei, T., Lothenbach, B., & Glasser, F. P. (2007): HYDROGARNET-SI, ETTRINGITE, 
+                TRICARBOALUMINATE, MONOSULFOALUMINATE, MONOCARBOALUMINATE, HEMICARBOALUMINATE, C4AH13, C2AH8, STRATLINGITE, JENNITE, TOBERMORITE, ALITE, BELITE, C3A, 
+                C4AF, CAH10, SILICA-AM-MLG07, GYPSUM-MLG07, ANHYDRITE-MLG07, PORTLANDITE-MLG07, LIME-MLG07, CALCITE-MLG07, GIBBSITE-MLG07.     
+        4.      Added 12 species from RH95, Robie, R. A., & Hemingway, B. S. (1995): CERIUM, CERIANITE, MASCAGNITE, NITRATE-MG, NITRATE-CA, NITRATE-SR, NITROBARITE, NITER,
+                NITER-NA, NITER-NH4, DAWSONITE-RH, TREVORITE 
+        5.      Added 36 minerals from RHF78, Robie, R. A., Hemingway, B. S., & Fisher, J. R. (1978): FLUORPHLOGOPITE, CE2O3(S), DYSPROSIUM, DY2O3(S), ERBIUM, ER2O3(S),
+                EUROPIUM, EUO(S), EU2O3(S), GADOLINIUM, GD2O3(S), HOLMIUM, HO2O3(S), LANTHANUM, LA2O3(S), lUTETIUM, LU2O3(S), NEODYMIUM, ND2O3(S), PRASEODYMIUM, 
+                PRO1.833(S), PR2O3(S), SCANDIUM, SC2O3(S), SAMARIUM, SM2O3(S), TERBIUM, TB2O3(S), THULIUM, TM2O3(S), YTTERBIUM-LO, YTTERBIUM-HI, YB2O3(S), YTTRIUM, Y2O3(S),
+                MILLERITE. 
+        6.      Added 6 species from DRT98 (Diakonov, I.I., Ragnarsdottir, K.V., Tagirov, B.R., 1998): Y(OH)3(s), PR(OH)3(S), EU(OH)3(S), GD(OH)3(S), TB(OH)3(S), HO(OH)3(S), 
+        7.      Added 2 species from DTR98 (Diakonov, I.I., Tagirov, B.R., Ragnarsdottir, K.V., 1998): LA(OH)3(S), ND(OH)3(S).
+        8.      Added 3 species from S10, Spear (2010): APATITE-CE, MONAZITE-CE, ALLANITE.
+        9.      Added 4 species from SP10, Spear and Pyle (2010): APATITE-Y-F, APATITE-CE-F, MONAZITE-Y, XENOTIME.  
+        10.     Added 2 species from JBGPBC07, Janots, E., Brunet, F., Goffé, B., Poinssot, C., Burchard, M., & Cemič, L. (2007): MONAZITE-LA  and DISSAKISITE-LA
+        11.     Added 13 species from MWBC16, Migdisov, A., Williams-Jones, A. E., Brugger, J., & Caporuscio, F. A. (2016): MONAZITE-LA-MWBC, MONAZITE-CE-MWBC, 
+                MONAZITE-PR-MWBC, MONAZITE-ND-MWBC, MONAZITE-SM-MWBC, MONAZITE-EU-MWBC, MONAZITE-GD-MWBC, XENOTIME-TB-MWBC, XENOTIME-DY-MWBC, XENOTIME-ER-MWBC,
+                XENOTIME-YB-MWBC, XENOTIME-LU-MWBC, XENOTIME-Y-MWBC
+        12.     Added 15 species from BA05, Bessinger and Apps (2005): AG2O, ANTIMONY, ARGENTITE, ARSENIC, ARSENOLITE, ARSENOPYRITE-B, BERTHIERITE, CLAUDETITE-BA, LOELLINGITE,
+                MONTROYDITE, ORPIMENT-BA, REALGAR, SENARMONTITE, STIBNITE, VALENTITE  
+        13.     Added 19 species from G97, Goodgame, V. Roland. (1997): ALTAITE, ARSENIC-R, ARSENOPYRITE-R, CALCIUM, COBALT, KOTULSKITE, MERENSKYITE, MONCHEITE, NICCOLITE,
+                PENTLANDITE, PENTLANDITE1, PENTLANDITE-CO, PENTLANDITE-FE, PENTLANDITE-FE2, PENTLANDITE-FE3, PENTLANDITE-Ni, PTTE, VYSOTSKITE, SPERRYLITE        
+        14.     Added 1 species from X03, Xiong, Yongliang (2003): ANTIMONSELITE
+        15.     Added 1 species from HDNB78, Helgeson et al. (1978): COVELLITE-HDNB
+        16.     Added 1 species from S00, Sack, R.O. (2000): COVELLITE
+        17.     Added 1 species from S88, Stoessell, R.K. (1988): SEPIOLITE
+        18.     Added 2 species from GW15, Gysi and Williams-Jones (2015): BASTNAESITE-CE, PARISITE-CE 
+        19.     Added 12 species from OMKP12, Ogorodova, L.P., Melchakova, L.V., Kiseleva, I.A., Peretyazhko, I.S., 2012: DRAVITE-ORIG, SCHORL-ORIG, UVITE-ORIG, 
+                FOITITE-MG-ORIG, ELBAITE-ORIG, LIDDICOATITE-ORIG, DRAVITE, SCHORL, UVITE, FOITITE-MG, ELBAITE, LIDDICOATITE. 
+        20.     Added 1 species from LBMPTT13, Lemire, R. J., Berner, U., Musikas, C., Palmer, D. A., Taylor, P., & Tochiyama, O. (2013): AKAGANEITE
+
+09/20/2020
+        1.      Added comment lines precede top of min1 block, including description of spronbl.dat and references of the species. 
+        2.      Changed the thermodynamic data of CHALCEDONY and SiO2(a) and reference them to Robie and Hemingway (1995), RH95. 
+        3.      Added SiO2,aq and HSiO3- from Miron et al. (2016). Named them as SiO2M,aq and HSiO3-M.           
+
+06/04/2020
+	1.	Updated c1, c2 for As-bearing species following MA10 (Erratum to: Prediction of the thermodynamic properties of metal–arsenate and metal–arsenite aqueous complexes to high temperatures and pressures and some geological consequences)
+	
+11/27/2019
+	1. 	Updated DG, DH, S, a, b, c, d for DAWSONITE. Data from ZZLCZDZ16 (Kurt Zimmer, Yilun Zhang, Peng Lu, Yanyan Chen, Guanru Zhang, Mehmet Dalkilic, Chen Zhu, 2016, SUPCRTBL: A revised and extended thermodynamic dataset and software package of SUPCRT92)
+	2. 	Updated a1, a2, a3, a4, c1, c2, w for H2AsO4- and HAsO4-2. Data from SSWS97 (Shock, E.L., Sassani, D.C., Willis, M., and Sverjensky, D.A., 1997, Inorganic species in geologic fluids: Correlations among standard molal thermodynamic properties of aqueous ions and hydroxide complexes: Geochim. Cosmo. Acta, v. 61, no. 5, pp. 907-950. )
+	3. 	Updated a1, a2, a3, a4, c1, c2, w for H2AsO3-. Data from SH88 (Shock, E.L., and Helgeson, H.C., 1988, Calculation of the thermodynamic and transport properties of aqueous species at high pressures and temperatures: Correlation algorithms for ionic species and equation of state predictions to 5 kb and 1000 C: Geochim. Cosmo. Acta, v. 52, pp. 2009-2036. )
+	4. 	Changed H3AsO3,aq to HAsO2,aq and updated its name, elemental formula, DG, DH, S, a1, a2, a3, a4, c1, c2, and w. Data from SSWS97
+	5. 	Updated DG, DH, S, V, a, b, c, d for FLUORAPATITE and HYDROXYAPATITE. Data from ZS91 (Chen Zhu, Dimitri A. Sverjensky, 1991, Partitioning of F-Cl-OH between minerals and hydrothermal fluids)
+	6. 	Added mineral CHLORAPATITE. Data from ZS91
+
+1/31/2019
+	1.	Changed the properties for HSiO3- to match the logK for SiO2,aq+H2O<->HSiO3-+H+ reaction.
+		a.	Only DGf, S, c1, c2 and ω were changed, as John Apps has done for SiO2,aq. 
+	2.	The refined parameters for HSiO3- was included to SUPCRTBL and the sprons file was updated to version 24 (spronsbl-2017.24.dat)
+ 
+1/15/2018
+	SUPCRTBL Online version major improvements:
+	
+	1.	The problem of output name conflict is solved
+		Previously, the output file name must be a unique name that has never been used before. This problem is solved now by deleting the relevant files immediately after use, except the zip file for our record.
+	2.	Multiple reactions now allowed
+		Multiple reactions can be inputted in the reaction box by inserting a new line between reactions
+	3.	Input auto-check function added
+		a.	Check the mix-max-increment is of valid format:
+			Must be three non-negative numbers separated by space, comma, or space-comma
+		b.	Check if the unequal temperature-pressure pair is valid
+			Must be two non-negative numbers separated by comma
+		c.	Check if the reaction input is valid
+			Must be a number followed by a species name (a string), with space separated
+	
+11/30/2018
+	1.	Saponite and illite added
+	2.	Corrected the formulas for Beidellite-H and Nontroite-H
+	3.	Corrected the DfG for Beidellite-H
+	4.	Changed the names of
+			METHANE,aq to CH4,aq
+			ACETIC-ACID,aq to HAcetate,aq
+			ACETATE- to Acetate-
+	
+2/5/2018
+	1.	Montmorillonite and Nontronite species (nine) added (not consistent with rest of the SUPCRTBL database)
+		Note: The H value is from Palandri is not calculated. As this value is not used in calculating logK, the default value is kept. 		
+
+1/9/2018
+	1.	Beidelite species (five) added (not consistent with rest of the SUPCRTBL database)
+		Note: The H value is from Palandri is not calculated. As this value is not used in calculating logK, a default value of 0 is used. 		
+
+12/1/2017
+	1.	Fix and standardize names and formula for species: HGaO2, Ru(SO4)2-2, As3S4(HS)2-, HfO+2, EuF2, LuH2PO4+2, H-SUCCINATE, HEPTANOATE, Ni(Ac)+, ALANATE, Zn(Gly)2, Na(For)2-, Sr(But)2, HFeO2-, H2SeO3, KAlO2, Pd(OH)+, PdSO4, Pt(OH)+, PtSO4, Rh(OH)+, Rh(OH)+2, RhSO4, Rh(SO4)+, YO2-, U(OH)+2, HN2O2-, H2AsO4-, H2AsO3-, Zr(OH)+3, Al(OH)2F, Al(OH)F2, Ru(OH)+, Ru(OH)+2, RuSO4, Ru(SO4)+
+	2.	Change the name for As2O5 to As2O5,s
+
+11/25/2017
+	1.	Delete duplicate organic species, keep the species name that is unique:
+	2.	Delete PROPANAMINE, PROPANOL, BUTANE, PENTANE, HEXANE, HEPTANE, OCTANE
+	3.	Standardize names for organic species:
+			2-3DMP -> 2,3-DMP
+			2-5DMP -> 2,5-DMP
+			2-6DMP -> 2,6-DMP
+			3-4DMP -> 3,4-DMP
+			3-5DMP -> 3,5-DMP
+	4.	Delete duplicate inorganic species:
+			AlO+ and Al(OH)2+, delete AlO+
+			HAlO2 and Al(OH)3, delete HAlO2
+			AlO2- and Al(OH)4-, delete AlO2-
+			NaAlO2 and NaAl(OH)4, delete NaAlO2
+			H4SiO4 and SiO2, delete H4SiO4
+			AsO2- and H2AsO3-, delete AsO2-
+			HAsO2 and H3AsO3, delete H3AsO3
+	5.	Fixed a bug: the default value for unavailable data changed to 999.9999
+
+11/21/2017
+	1.	Standardized the names and formula for aqueous species
+
+11/18/2017
+	1.	Replace spaces in mineral names with underscore:
+		a.	Mg-TSCHERMAKS PX -> Mg-TSCHERMAKS_PX
+			Al-FREE CHLORITE-> Al-FREE_CHLORITE
+			NICKEL OXIDE-> NICKEL_OXIDE
+			LOW TROILITE-> LOW_TROILITE
+			Ca-TSCHERMAKS PX-> Ca-TSCHERMAKS_PX
+			HI-P CLINOENSTATITE-> HI-P_CLINOENSTATITE
+			CLINO ENSTATITE-> CLINO_ENSTATITE
+			Ca-ESKOLA PYROXENE-> Ca-ESKOLA_PYROXENE
+
+11/15/2017
+	1.	Correct elemental formula of HSbO2,aq, H4P2O7,aq, HAsO2,aq, Pd+2, Rh+2, Rh+3, RhCl2,aq, Ru+2, Ru+3, Ce+4, Er+2
+	2.	Delete duplicate species: BaCO3, CaCO3, MgCO3, SrCO3, BaF+, PbF+. Keep data from SSH97
+	3.	Delete duplicate species: H2AsO4-1, H2AsO3-1. Keep data from NA02
+
+12/05/2016
+	1.	Minor output bug fixed
+	2.	More Al complex included to supcrtbl database (mostly Al-F complex) from Tagarov and Schott 2001 (in request of Prof. Mike Bickle)
+
+3/29/2016
+	1.	SUPCRTBL1.2 finished (New folder created called SUPCRTBL1.2)
+		a.	New features:
+			BW phase transition (verification done)
+			New database with BW phase transition
+
+3/11/2016
+	1.	BW hand calculation verified with Holland’s python code. The result is the same for Q, Hdis, Sdis, and Gdis. 
+		Note that HP11 uses Berman-Brown convention, and SUPCRTBL and HP98 uses Benson-Helgeson convention. So the python code does not use elemental entropy, and the calculated G is different. 
+
+3/10/2016
+	1.	SUPCRTBL 1.02 is made, allowing 1000 increment in temperature, pressure and water density, both equal increment and univariant curve increment. Unequal increment not tested, because it is impractical to type in 1000 unequal increments. A few cases are tested, (equal increment in temperature, univariant curve increment in temperature), other cases not tested. Source codes are saved in SUPCRTBL1.02 folder.
+	2.	Landau modification (supcrtbl1.01) is verified. No mistakes were found.
+
+3/3/2016
+	1.	Landau Phase Transition:
+		HP updated the calculation methods since HP98. We have the python code and two things have been changed:
+	2.	Equation A.8 and A.9, HP11 removed these two equations for two reasons: 1) the equations use a different EOS, and assume ’=4, which have been changed since HP11; 2) the two equations have very little effect on the 	calculated value and thus they think they are over-complication. We fixed it.
+	3.	Effect of this simplication of Eq. A.8 and A.9 (All numbers here are calculated by spreadsheet, the code has not been verified yet)
+		Difference between the two method on G is very small at low pressure (<1kbar). At ambient temperature and pressure the difference is ~2E-5kJ/mol for quartz. At 800K and 1kbar, the difference is ~1E-3kJ/mol. However, it will be significant at P>50kbar. At 800K and 100kbar (although quartz does not exist at that high pressure), the difference is ~20kJ/mol. But, the high pressure phases in HP11 database does not have a phase transition, so it will not be a problem for us.
+
+3/3/2016
+	1.	SUPCRTBL 1.0, SUPCRTBL Online 1.0 and spronsbl-1.0.dat are published
+	2.	SUPCRTBL 1.01 is under construction (updating Landau calculation according to Holland’s python code)
+
+12/03/2015
+	1.	Check with elemental S from Robie&Hemingway 1995. Calculate G using RH95 and verify with JP (using H and S from spronshp2011.d at and compare the calculate result with G from the same file). All differences are very small (<0.001kJ/mol)
+	2.	ecform of MgAl-pumpellyite and FeAl- pumpellyite was wrong (flipped). Change to correct one in both ds622 version and HP11 paper version
+	3.	I noticed that thermodynamic properties changed between tc-ds62.txt (the one spronshp2011.dat used) and tc-ds622.txt (latest one)
+	4.	New spronsbl.dat file made in Full folder/Database/HP11_ds622 folder
+	5.	Spronsbl.dat file with HP11 paper values are now moved to Full folder/database/Hp11_paper folder
+
+12/2/2015
+	1.	Found that HP11 is outdated, use Thermocalc database tc-ds622.txt to replace the values.
+	2.	Old HP11 paper values are backed up with suffix “_old” in the same folder
+	3.	Major change in the files:
+		a)	Aragonite no longer treated as minerals that undergoes Landau phase transition (i.e. not in Table 2b any more)
+		b)	Gedrite (ged) is not in HP11 paper but in both tc-ds62.txt and tc-ds622.txt. It is also in HP98 paper
+		c)	32 more minerals added to the database (compared to HP11 paper), but not added to the supcrt database currently because the names of the minerals are not known yet.
+			i.	chdr is Chondrodite (exist in tc-ds62.txt, name from JP)
+			ii.	All other 31 minerals are new to the database (compared to tc-ds62.txt)
+			iii.	8 minerals among the 31 new minerals are dummy minerals (all thermodynamic properties are 0.0)
+			iv.	Three minerals have different abbreviations: Fe-OSUMILITE (fosm in HP11, osfa in tc-ds622.txt), OSUMILITE(1) (osm1 vs. osma), OSUMILITE(2) (osm2 vs. osmm)
+ 
+11/29/2015
+	1.	Tmax changed to 9999.0K
+
+10/22/2015
+	1.	All existing bug fixed
+	2.	Jadeite+Quartz->Albite phase diagram done
+ 
+10/21/2015
+	1.	Bugs in SUPCRTBL_J
+		a)	Wrong format if more than 1 minerals
+		b)	More space for heat capacity
+		c)	More space between d and Tmax for non-Landau minerals
+		d)	More space for c
+		e)	Rounding errors is significant, already fixed by changing converting factor 0.239 to 1/4.184
+		2.	Checked with result of MIN&AQS reaction file. Difference is small at 500C, 1kbar. Biggest difference: 
+		a)	logK: 0.002 (Cordierites)
+		b)	delGr: -0.033KJ/mol (Fe-Cordierite)
+		c)	delHr:-0.042KJ/mol (Vesuvianite)
+		d)	delSr: -0.056J/molK (Vesuvianite)
+		e)	delVr: -0.012J/bar (Vesuvianite)
+		f)	delCpr:-0.57J/molK (Vesuvianite)
+		
+		Difference is acceptable and caused by rounding errors.
+
+10/20/2015
+	1.	Quartz dissolution write-up revised with questions on source of HKF model from Jim Palandri.
+
+10/19/2015
+	1.	H4SiO4 is added into the database in addition to SiO2,aq, using Stefasson 2001
+	2.	Result using Stefasson 2001 is very different from the original one, which is from Jim Palandri (The original one fits much better to Rimstidt 1997). 
+		The source in Jim Palandri’s database is Apps, J.A., 2000, Scientific Notebook YMP-LBNL-YWT-JA-1A. I don’t know what it means
+	3.	The a1-a4 of Jim Palandri’s data are the same as slop98/07, but the c1, c2 and w are different.
+	4.	Quartz dissolution figure updated with quartz considering Landau:  E:\Research\IUB\SUPCRT_cal_landau\Quartz logK.xlsx
+
+10/15/2015
+	1.	Joules program done
+	2.	The joules database is done and is compatible with the updated cprons
+	3.	A bug in calorie version is fixed (minor but wrong calculation in landau)
+
+10/14/2015
+	1.	Joules database finished
+	2.	Landau appendix finished
+	3.	A test supcrt with modified Landau is compiled (only for testing)
+
+10/13/2015
+	1.	The non-HP11 mineral problem solved. The chemical formula of the two minerals was wrong.
+	2.	Data file updated
+	3.	Check logK for minerals reactions at 500C, 1kbar, only for the minerals whose logK at 25C match between two versions (diff<0.5)
+	a)	All minerals have decreased difference in logK at 500C as compared to that at 25C, except annite. (not including antigorite because it is a bug in HP98)
+	b)	Annite has large difference because the S changed by 10J/molK between HP98 and HP11.
+	4.	Joules version of SUPCRTBL mostly done. The program is working well.
+
+10/12/2015
+	1.	Check of name and chemical formula of HP11 minerals done. No errors found.
+	2.	Check logK for mineral reaction at 25C and 1bar. All minerals with logK difference >1.0 were checked. 
+		a)	35 out of 39 cases can be explained with change in H and S between two databases. The difference in logK have two sources:
+			i.	Difference of H and S between HP98 and HP11
+			ii.	Difference in elemental entropy references.
+		b)	1 case can be explained by a mistake in HP98 database. 
+			The G in HP98 data file is different from HP98 paper (-11807.73 in paper, -11809.29 in data file)
+		c)	1 case can be explained by a typo in HP98 paper. 
+			H of heulandite in HP98 (table 5) is -1059.41KJ/mol, which is about 10 times less than what it should be.
+		d)	2 cases are difference in non-HP11 minerals, which need to be checked later. Solved
+		SAPPHIRINE(793) and Fe- SAPPHIRINE(793)
+		Details can be found in spreadsheet: “E:\Research\IUB\SUPCRT_cal_landau\MINAQS\minaqs.xlsx”
+	3.	The equivalent logK difference was calculated using the difference of H and S between two databases
+
+10/09/2015
+	1.	HP11 calories.xlsx checked and updated with digitalized HP11 table 1. 
+	2.	All figures from HP11 have been corrected. No more mistakes were found during the line-by-line check.
+	3.	spronsbl.dat updated to reflect new additions to slop07.dat
+	4.	The deltaH and S of HS-, HSO3-, and HSO4- were slightly off ~20cal in H, ~0.05cal in S. Changed to same value as slop07.dat.
+	5.	Spronsbl.dat and dpronsbl.dat are updated to latest version.
+	6.	MIN&AQS reaction file tested with latest version. The logK for all aqueous reactions are the same to the third decimal place with SUPCRT98.
+	7.	logK for gas reactions are close with SUPCRT98, with 0.000-0.004 in difference (deltaG of gases are re-calculated using new elemental entropy).
+	8.	logK for mineral reactions are generally similar. 28 reactions out of 157 have difference in logK greater than 0.5.
+		a)	One of these (antigorite) is caused by a known bug in SUPCRT98
+	9.	A distributable executable file was created
