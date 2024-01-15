@@ -11,6 +11,7 @@ import RateCalculator from "./pages/RateCalculator/RateCalculator";
 import RateScripts from "./pages/RateScripts/RateScripts";
 import H2SCalculator from "./pages/H2SCalculator/H2SCalculator";
 import SupcrtblOnlineInputFile from "./pages/Supcrtbl/SupcrtblOnlineInputFile";
+import PhreeqcOnline from "./pages/PHREEQC/PhreeqcOnline";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
             path="/SupcrtblOnlineInputFile"
             element={<SupcrtblOnlineInputFile />}
           />
+          <Route path="/PhreeqcOnline" element={<PhreeqcOnline />} />
         </Routes>
       </div>
     </Router>

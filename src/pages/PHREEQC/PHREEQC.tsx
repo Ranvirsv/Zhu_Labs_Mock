@@ -10,7 +10,7 @@ export default function PHREEQC() {
           {[
             {
               name: "Click here to use the online version of ᴘʜʀᴇᴇǫᴄ",
-              url: "/",
+              url: "/PhreeqcOnline",
             },
             {
               name: "Version 3 Documentation by Parkhurst and Appelo (2013)",
