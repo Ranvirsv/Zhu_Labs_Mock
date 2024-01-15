@@ -14,10 +14,16 @@ export default function PHREEQC() {
             },
             {
               name: "Version 3 Documentation by Parkhurst and Appelo (2013)",
-              url: "/",
+              url: "https://pubs.usgs.gov/publication/tm6A43",
             },
-            { name: "Example Input Files", url: "/" },
-            { name: "USGS Software User Rights Notice", url: "/" },
+            {
+              name: "Example Input Files",
+              url: "https://www.resolutionmineeis.us/documents/parkhurst-appelo-2013",
+            },
+            {
+              name: "USGS Software User Rights Notice",
+              url: "https://water.usgs.gov/software/help/notice/",
+            },
           ].map((elemnt) => (
             <li>
               <a className="App-links__item" href={elemnt.url}>
