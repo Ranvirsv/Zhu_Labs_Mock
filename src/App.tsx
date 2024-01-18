@@ -10,8 +10,9 @@ import CotwoCalculator from "./pages/CotwoCalculator/CotwoCalculator";
 import RateCalculator from "./pages/RateCalculator/RateCalculator";
 import RateScripts from "./pages/RateScripts/RateScripts";
 import H2SCalculator from "./pages/H2SCalculator/H2SCalculator";
-import SupcrtblOnlineInputFile from "./pages/Supcrtbl/SupcrtblOnlineInputFile";
+import SupcrtbOnlineInputFile from "./pages/SupcrtblOnlineInputFile/SupcrtblOnlineInputFile";
 import PhreeqcOnline from "./pages/PHREEQC/PhreeqcOnline";
+import SolubilityCalculator from "./pages/SolubilityCalculator/SolubilityCalculator";
 
 function App() {
   return (
@@ -36,9 +37,13 @@ function App() {
           <Route path="/H2SCalculator" element={<H2SCalculator />} />
           <Route
             path="/SupcrtblOnlineInputFile"
-            element={<SupcrtblOnlineInputFile />}
+            element={<SupcrtbOnlineInputFile />}
           />
           <Route path="/PhreeqcOnline" element={<PhreeqcOnline />} />
+          <Route
+            path="/SolubilityCalculator"
+            element={<SolubilityCalculator />}
+          />
         </Routes>
       </div>
     </Router>
