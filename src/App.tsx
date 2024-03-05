@@ -13,6 +13,8 @@ import H2SCalculator from "./pages/H2SCalculator/H2SCalculator";
 import SupcrtbOnlineInputFile from "./pages/SupcrtblOnlineInputFile/SupcrtblOnlineInputFile";
 import PhreeqcOnline from "./pages/PHREEQC/PhreeqcOnline";
 import SolubilityCalculator from "./pages/SolubilityCalculator/SolubilityCalculator";
+import H2SCalculatorOnline from "./pages/H2SCalculator/H2SCalculatorOnline";
+import RateCalculatorOnline from "./pages/RateCalculator/RateCalculatorOnline";
 
 function App() {
   return (
@@ -43,6 +45,14 @@ function App() {
           <Route
             path="/SolubilityCalculator"
             element={<SolubilityCalculator />}
+          />
+          <Route
+            path="/H2SCalculatorOnline"
+            element={<H2SCalculatorOnline />}
+          />
+          <Route
+            path="/RateCalculatorOnline"
+            element={<RateCalculatorOnline />}
           />
         </Routes>
       </div>

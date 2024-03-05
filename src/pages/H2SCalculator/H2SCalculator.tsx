@@ -1,4 +1,5 @@
 import React from "react";
+import "../../App.scss";
 
 export default function H2SCalculator() {
   return (
@@ -6,7 +7,7 @@ export default function H2SCalculator() {
       <h2>H2S SOLUBILITY CALCULATOR</h2>
       <ul>
         <li>
-          <a className="App-links__item" href="/">
+          <a className="App-links__item" href="/H2SCalculatorOnline">
             <h4>
               Online <i>H</i>
               <sub>2</sub>

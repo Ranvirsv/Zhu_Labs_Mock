@@ -7,7 +7,7 @@ export default function RateCalculator() {
       <h2>Geochemical Reaction Rate Calculator</h2>
       <ul>
         <li>
-          <a className="App-links__item" href="/">
+          <a className="App-links__item" href="/RateCalculatorOnline">
             <h4>Online Rate Calculator</h4>
           </a>
         </li>

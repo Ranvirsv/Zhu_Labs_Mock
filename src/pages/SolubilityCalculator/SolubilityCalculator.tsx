@@ -1,6 +1,4 @@
-import React from "react";
 import Form from "react-bootstrap/Form";
-import { List } from "react-bootstrap/lib/Media";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
