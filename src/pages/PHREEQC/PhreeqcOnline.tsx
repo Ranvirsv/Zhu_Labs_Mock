@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../App.scss";
+import Form from "react-bootstrap/Form";
+import { FromDatabaseOptions } from "./IPhreeqcOnline";
 
 export default function PhreeqcOnline() {
+  const [databaseOptions, setDatabaseOptions] = useState<number>(0);
+  const databaseOptionList: FromDatabaseOptions = {
+    //TODO: Fill in the function to get all the databases
+  };
   return (
     <div className="m-5 p-5">
       <h2 className="pageHeader">PHREEQC ONLINE VERSION 4.0.0</h2>
@@ -11,60 +17,55 @@ export default function PhreeqcOnline() {
         special characters will not be accepted)
       </p>
 
-      <form>
-        <div className="">
-          <label htmlFor="inputFile">
-            <b>Input File:</b>
-          </label>
-          <br />
-          <input type="file" className="form-controller-file" id="inputFile" />
-        </div>
+      <div className="col-3">
+        <Form.Label>
+          <b>Input File:</b>
+        </Form.Label>
+        <Form.Control type="file" />
+      </div>
 
-        <br />
+      <div className=" my-3 col-3">
+        <Form.Label>
+          <b>Name for output file</b>
+        </Form.Label>
+        <Form.Control type="text" placeholder="" />
+      </div>
 
-        <div className="input-group">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="inputGroup-sizing-default">
-              Name the Output File:
-            </span>
-          </div>
-          <input
-            type="text"
-            className="form-controller"
-            aria-describedby="inputGroup-sizing-default"
-          />
-        </div>
-
-        <br />
-
-        <div className="form-group">
-          <label htmlFor="databaseFile">
-            <b>Database File:</b>
-          </label>
-          <br />
-          <input
+      <div className="row my-3 col-3">
+        <Form>
+          <b>Database File:</b>
+          <Form.Check
+            name="Database Files"
+            id="Upload custom database file"
+            label="Upload custom database file"
+            value="Upload custom database file"
             type="radio"
-            name="radioInputs"
-            className="form-check-input"
-            id="customDatabaseFile"
-            value="Custom-Database-File"
-          />{" "}
-          <label className="form-check-label" htmlFor="customDatabaseFile">
-            Upload custom database file
-          </label>
-          <br />
-          <input
+            onClick={() => setDatabaseOptions(1)}
+          ></Form.Check>
+          <Form.Check
+            name="Database Files"
+            id="Use existing database file"
+            label="Use existing database file"
+            value="Use existing database file"
             type="radio"
-            name="radioInputs"
-            className="form-check-input"
-            id="existingDatabaseFile"
-            value="Existing-Database-File"
-          />{" "}
-          <label className="form-check-label" htmlFor="liquidVapor">
-            Use existing database file
-          </label>
-        </div>
-      </form>
+            onClick={() => setDatabaseOptions(2)}
+          ></Form.Check>
+          {databaseOptions === 1 ? (
+            <Form.Group controlId="formFile" className="my-2">
+              <Form.Control type="file" />
+            </Form.Group>
+          ) : databaseOptions === 2 ? (
+            <Form.Select className="my-2">
+              <option>Select a database</option>
+              {Object.keys(databaseOptionList).map((elem, path) => {
+                return <option value={path}>elem</option>;
+              })}
+            </Form.Select>
+          ) : (
+            <div></div>
+          )}
+        </Form>
+      </div>
     </div>
   );
 }
