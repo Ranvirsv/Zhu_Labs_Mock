@@ -32,15 +32,20 @@ export default function SupcrtbOnlineInputFile() {
       "univariantCalculation",
     ],
     "Specify indipendent state variable:": [
+      "liqVapSaturation",
       "tabulationOptions",
       "tableIncrement",
       "univariantCurve",
       "univariantCalculation",
     ],
+    "Specify indipendent liq-vap saturation variable:": ["tableIncrement"],
     "Specify tabulation option:": ["tableIncrement", "univariantCalculation"],
     "Would you like to use the univariant curve option? (i.e., calculate T(logK,P) or P(logK,T):":
-      ["univariantCalculation"],
-    "Specify indipendent liq-vap saturation variable:": [],
+      ["univariantCalculation", "tableIncrement", "tabulationOptions"],
+    "Specify univeriant calculation option:": [
+      "Specify table-increment option:",
+    ],
+    "Specify table-increment option:": [],
   };
 
   const resetDependentStates = (currentHeader: string) => {
@@ -67,7 +72,6 @@ export default function SupcrtbOnlineInputFile() {
         case "univariantCalculation":
           setUnivariantCalculation("");
           break;
-        // Add cases for other dependencies
       }
     });
   };
