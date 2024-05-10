@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from "react";
+import React, { useState } from "react";
 import "../../App.scss";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -57,8 +57,6 @@ export default function SupcrtbOnlineInputFile() {
   const [isUnequalIncrementSelected, setIsUnequalIncrementSelected] =
     useState(false);
 
-  // Plot Option
-  const [plotOption, setPlotOption] = useState(false);
   const [reactionFileOption, setReactionFileOption] = useState<number>(-1);
 
   const resetDependentStates = (currentHeader: string) => {
@@ -228,9 +226,6 @@ export default function SupcrtbOnlineInputFile() {
       ],
     },
   ];
-
-  const onSubmitForm = (e: FormEvent<HTMLFormElement>) => {};
-
   return (
     <div className="m-5 p-5">
       <h2 className="pageHeader">SUPCRTBL ONLINE VERSION 3.0.0</h2>
@@ -616,7 +611,6 @@ export default function SupcrtbOnlineInputFile() {
             label="Do not generate plot files"
             value="0"
             required
-            onChange={(e) => setPlotOption(false)}
             type="radio"
           />
           <Form.Check
@@ -625,7 +619,6 @@ export default function SupcrtbOnlineInputFile() {
             label="Generate plot files in generic format"
             value="1"
             required
-            onChange={(e) => setPlotOption(true)}
             type="radio"
           />
         </Form.Group>
