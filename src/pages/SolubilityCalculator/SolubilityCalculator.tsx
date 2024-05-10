@@ -2,6 +2,7 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
+import { Button } from "react-bootstrap";
 
 export default function SolubilityCalculator() {
   const calculatorInputs: string[] = [
@@ -30,7 +31,7 @@ export default function SolubilityCalculator() {
         </Card.Body>
       </Card>
 
-      <div className="form">
+      <Form>
         {calculatorInputs.map((elem) => {
           return (
             <Form.Group as={Row} className="mb-3" controlId="formPlaintext">
@@ -38,12 +39,31 @@ export default function SolubilityCalculator() {
                 <b>{elem}</b>
               </Form.Label>
               <Col sm="3">
-                <Form.Control type="text" placeholder="" />
+                <Form.Control type="text" required placeholder="" />
               </Col>
             </Form.Group>
           );
         })}
-      </div>
+        <Button className="mt-3" type="submit">
+          SUBMIT
+        </Button>
+      </Form>
+
+      <Card className="mt-3">
+        <Card.Body>
+          <Card.Text>
+            <pre>
+              The Fortran code for the calculator was written by Sun Rui, now a
+              professor at Northwest University in Xian{" "}
+              <a href="http://geology.nwu.edu.cn/Article/teacher/en/1/id/114.html">
+                {"("}http://geology.nwu.edu.cn/Article/teacher/en/1/id/114.html
+                {")"}.{" "}
+              </a>
+              Online adoption was completed by Rob Hageboeck and Kevin Tu.
+            </pre>
+          </Card.Text>
+        </Card.Body>
+      </Card>
     </div>
   );
 }

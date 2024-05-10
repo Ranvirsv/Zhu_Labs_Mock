@@ -1,3 +1,3 @@
 export type FormRadioVals = {
-  [key: string]: [string, string];
+  [key: string]: [string, Record<string, string>];
 };
