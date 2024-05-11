@@ -1,8 +1,8 @@
 export type IFormData = {
   mineral: string;
-  temperature: string;
+  temp: string;
   pH: string;
-  pFe3Plus: string;
-  pO2: string;
-  pCO3: string;
+  feINPUT: string;
+  oINPUT: string;
+  co2INPUT: string;
 };

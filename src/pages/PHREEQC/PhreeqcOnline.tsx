@@ -1,14 +1,23 @@
 import React, { useState } from "react";
 import "../../App.scss";
 import Form from "react-bootstrap/Form";
-import { FromDatabaseOptions } from "./IPhreeqcOnline";
 import { Button } from "react-bootstrap";
 
 export default function PhreeqcOnline() {
   const [databaseOptions, setDatabaseOptions] = useState<number>(-1);
-  const databaseOptionList: FromDatabaseOptions = {
-    //TODO: Fill in the function to get all the databases
-  };
+
+  const databaseOptionList: string[] = [
+    "geothermal.dat",
+    "geothermal-REE.dat",
+    "diagenesis.dat",
+    "bl-0.5kb.dat",
+    "bl-1kb.dat",
+    "bl-2kb.dat",
+    "bl-2kb-REE.dat",
+    "bl-5kb.dat",
+    "llnl-kinetics.dat",
+  ];
+
   return (
     <div className="m-5 p-5">
       <h2 className="pageHeader">
@@ -32,7 +41,7 @@ export default function PhreeqcOnline() {
 
       <Form
         name="supcrtForm"
-        action="localhost:3000"
+        action="https://149.165.154.118/phreeqc/phreeqc3.php"
         method="post"
         encType="multipart/form-data"
       >
@@ -49,6 +58,8 @@ export default function PhreeqcOnline() {
             maxLength={16}
             type="text"
             placeholder=""
+            pattern="++"
+            minLength={3}
           />
         </Form.Group>
 
@@ -79,8 +90,12 @@ export default function PhreeqcOnline() {
           ) : databaseOptions === 1 ? (
             <Form.Select className="my-2">
               <option>Select a database</option>
-              {Object.keys(databaseOptionList).map((elem, path) => {
-                return <option value={path}>elem</option>;
+              {databaseOptionList.map((elem, path) => {
+                return (
+                  <option key={elem} value={path}>
+                    {elem}
+                  </option>
+                );
               })}
             </Form.Select>
           ) : (

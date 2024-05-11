@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import { IFormData } from "./IRateCalculator";
 
 export default function RateCalculatorOnline() {
+  const [speciesArray, setSpeciesArray] = useState<string[]>([]);
+
   interface ICalculatorInput {
     label: string;
     name: keyof IFormData; // This ensures that name corresponds to a key in IFormData
@@ -15,7 +17,7 @@ export default function RateCalculatorOnline() {
     },
     {
       label: "Please enter a constant temperature (°C):",
-      name: "temperature",
+      name: "temp",
     },
     {
       label: "Please enter a constant pH:",
@@ -23,26 +25,26 @@ export default function RateCalculatorOnline() {
     },
     {
       label: "Please enter the activity of pFe3+:",
-      name: "pFe3Plus",
+      name: "feINPUT",
     },
     {
       label: "Please enter the activity of pO2:",
-      name: "pO2",
+      name: "oINPUT",
     },
     {
       label:
         "Please enter the activity of pHCO3- for Calcite or pCO2 for other carbonate minerals:",
-      name: "pCO3",
+      name: "co2INPUT",
     },
   ];
 
   const [formData, setFormData] = useState<IFormData>({
     mineral: "",
-    temperature: "",
+    temp: "",
     pH: "",
-    pFe3Plus: "",
-    pO2: "",
-    pCO3: "",
+    feINPUT: "",
+    oINPUT: "",
+    co2INPUT: "",
   });
 
   const handleChange = (name: keyof IFormData, value: string) => {
@@ -52,17 +54,21 @@ export default function RateCalculatorOnline() {
     }));
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    // Handle the form submission
-    console.log(formData);
-  };
+  useEffect(() => {
+    fetch(`http://149.165.154.118/DB.php?query=Species`)
+      .then((response) => response.json())
+      .then((response) => setSpeciesArray(response.Species))
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
     <div className="m-5 p-5">
       <h2 className="pageHeader">GEOCHEMICAL REACTION RATE CALCULATOR</h2>
       <hr />
-      <Form onSubmit={handleSubmit}>
+      <Form
+        action="http://149.165.154.118/rateconstants/rateconstants3.php"
+        method="post"
+      >
         {calculatorInputs.map((input, index) => (
           <Form.Group
             as={Row}
@@ -73,20 +79,24 @@ export default function RateCalculatorOnline() {
             <Form.Label column sm="10">
               <b>{input.label}</b>
             </Form.Label>
-            <Col sm="3">
+            <div className="col-3">
               {index === 0 ? (
-                <Form.Select>
-                  <option></option>
+                <Form.Select name="species">
+                  {speciesArray.map((elem) => (
+                    <option key={elem} value={elem}>
+                      {elem}
+                    </option>
+                  ))}
                 </Form.Select>
               ) : (
                 <Form.Control
-                  type="text"
+                  type={input.name}
                   name={input.name}
                   value={formData[input.name]}
                   onChange={(e) => handleChange(input.name, e.target.value)}
                 />
               )}
-            </Col>
+            </div>
           </Form.Group>
         ))}
         <Button variant="primary" type="submit">
