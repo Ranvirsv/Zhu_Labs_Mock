@@ -21,9 +21,9 @@ export default function RateCalculator() {
       </p>
 
       <p className="references">
-        Zhang YL, Hu B, Teng YG, Zhu C (2019) A library of BASIC scripts of rate
-        equations for geochemical modeling using ᴘʜʀᴇᴇǫᴄ. Computers &
-        Geosciences, v133,{" "}
+        Zhang YL, Hu B, Teng YG, Zhu C. (2019) A library of BASIC scripts of
+        rate equations for geochemical modeling using ᴘʜʀᴇᴇǫᴄ.{" "}
+        <i>Computers & Geosciences</i>, v133,{" "}
         <a
           className="App-links__item"
           href="https://www.sciencedirect.com/science/article/pii/S0098300418311853?via%3Dihub"
@@ -34,7 +34,9 @@ export default function RateCalculator() {
 
       <p>
         Please send comments or corrections to Professor Chen Zhu
-        (supcrt@indiana.edu).
+        <a className="App-links__item m-2" href="mailto:supcrt@iu.edu">
+            supcrt@iu.edu.
+          </a>
       </p>
 
       <br />

@@ -1,3 +1,12 @@
+.App{
+    display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  .content {
+    flex: 2;
+  }
+}
+
 .header{
     border-block-start-width: 4px;
     border-block-start-style: solid;

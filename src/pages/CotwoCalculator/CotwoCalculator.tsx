@@ -28,8 +28,7 @@ export default function CotwoCalculator() {
       <p className="references">
         Duan ZH, Sun R, Zhu Chen, Chou I-M (2006) An improved model for the
         calculation of CO2 solubility in aqueous solutions containing Na+, K+,
-        Ca2+, Mg2+, Cl−, and SO42− Marine Chemistry, Volume 98, Issues 2–4,
-        Pages 131-139,{" "}
+        Ca2+, Mg2+, Cl−, and SO42− Marine Chemistry 98 (2-4):131-139,{" "}
         <a
           className="App-links__item"
           href="https://www.sciencedirect.com/science/article/pii/S0304420305001118?via%3Dihub"
@@ -41,8 +40,9 @@ export default function CotwoCalculator() {
       <br />
 
       <p>
-        Please send comments or corrections to Professor Chen Zhu
-        (supcrt@indiana.edu).
+        Please send comments or corrections to Professor Chen Zhu<a className="App-links__item m-2" href="mailto:supcrt@iu.edu">
+            supcrt@iu.edu.
+          </a>
       </p>
 
       <br />

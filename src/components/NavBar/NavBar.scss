@@ -7,11 +7,12 @@
 
     &__itemList{
         margin: 0;
-        padding: 0;
+        margin-left: .25in ;
         list-style: none;
         display: flex;
         transform: translateX(15%);
         gap: 2rem;
+        width: 70%;
 
         &__item{
             color: inherit;

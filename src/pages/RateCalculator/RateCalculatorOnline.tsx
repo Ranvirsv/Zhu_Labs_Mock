@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import { IFormData } from "./IRateCalculator";
 
@@ -52,10 +52,13 @@ export default function RateCalculatorOnline() {
       ...prevState,
       [name]: value,
     }));
+    console.log(formData);
   };
 
   useEffect(() => {
-    fetch(`http://149.165.154.118/DB.php?query=Species`)
+    fetch(
+      `https://js2test.ear180013.projects.jetstream-cloud.org/DB.php?query=Species`
+    )
       .then((response) => response.json())
       .then((response) => setSpeciesArray(response.Species))
       .catch((error) => console.log(error));
@@ -66,7 +69,7 @@ export default function RateCalculatorOnline() {
       <h2 className="pageHeader">GEOCHEMICAL REACTION RATE CALCULATOR</h2>
       <hr />
       <Form
-        action="http://149.165.154.118/rateconstants/rateconstants3.php"
+        action="https://js2test.ear180013.projects.jetstream-cloud.org/rateconstants/rateconstants3.php"
         method="post"
       >
         {calculatorInputs.map((input, index) => (
@@ -76,8 +79,8 @@ export default function RateCalculatorOnline() {
             controlId={`formPlaintext${input.name}`}
             key={index}
           >
-            <Form.Label column sm="10">
-              <b>{input.label}</b>
+            <Form.Label className="text-bold" column sm="10">
+              {input.label}
             </Form.Label>
             <div className="col-3">
               {index === 0 ? (

@@ -20,9 +20,9 @@ export default function RateScripts() {
       <br />
 
       <p className="references">
-        Zhang YL, Hu B, Teng YG, Zhu C (2019) A library of BASIC scripts of rate
-        equations for geochemical modeling using ᴘʜʀᴇᴇǫᴄ. Computers &
-        Geosciences, v133,{" "}
+        Zhang YL, Hu B, Teng YG, Zhu C. (2019) A library of BASIC scripts of
+        rate equations for geochemical modeling using ᴘʜʀᴇᴇǫᴄ.{" "}
+        <i>Computers & Geosciences</i>, v133,{" "}
         <a
           className="App-links__item"
           href="https://www.sciencedirect.com/science/article/pii/S0098300418311853?via%3Dihub"
@@ -34,9 +34,9 @@ export default function RateScripts() {
       <p>
         A companion PHASES block library that is needed to use the RATES scripts
         is also provided. Both RATES and PHASES blocks are included in datasets,
-        phreeqc-kinetics.dat, diagenesis.dat, and geothermal.dat which are
-        options for online ᴘʜʀᴇᴇǫᴄ. If you just need to know the value of
-        reaction rates at a temperature and pH of your interest, you can use the{" "}
+        phreeqc-kinetics.dat, diagenesis.dat, and geothermal.dat options for
+        online ᴘʜʀᴇᴇǫᴄ. If you just need to know the value of reaction rates at
+        a temperature and pH of your interest, you can use the{" "}
         <a className="App-links__item" href="/RateCalculator">
           rate calculator
         </a>
@@ -44,7 +44,9 @@ export default function RateScripts() {
       </p>
 
       <p>
-        Kindly report errors to Professor Chen Zhu (supcrt@indiana.edu).
+        Kindly report errors to Professor Chen Zhu<a className="App-links__item m-2" href="mailto:supcrt@iu.edu">
+            supcrt@iu.edu.
+          </a>
         Tutorials, corrections, and updates may be found at Professor Zhu’s
         research web site{" "}
         <a

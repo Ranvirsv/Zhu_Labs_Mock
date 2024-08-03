@@ -1,4 +1,12 @@
 import React from "react";
+import {
+  Container,
+  Row,
+  Col,
+  ListGroup,
+  ListGroupItem,
+  Badge,
+} from "react-bootstrap";
 import "../../App.scss";
 
 export default function Supcrtbl() {
@@ -11,24 +19,8 @@ export default function Supcrtbl() {
         <ul className="App-links">
           {[
             {
-              name: "Online Version Of Supcrtbl",
+              name: "Online Version of Supcrtbl",
               url: "/SupcrtblOnlineInputFile",
-            },
-            {
-              name: "Download sᴜᴘᴄʀᴛʙʟ For Windows",
-              url: "http://149.165.154.118/supcrtbl/download_files/SUPCRTBL_windows.zip",
-            },
-            {
-              name: "Download sᴜᴘᴄʀᴛʙʟ For Linux",
-              url: "http://149.165.154.118/supcrtbl/download_files/SUPCRTBL_linux.zip",
-            },
-            {
-              name: "Download Tutorial For sᴜᴘᴄʀᴛʙʟ",
-              url: "http://149.165.154.118/supcrtbl/download_files/Tutorial.zip",
-            },
-            {
-              name: "View Changelog of sᴜᴘᴄʀᴛʙʟ",
-              url: "/",
             },
           ].map((elemnt) => (
             <li>
@@ -44,7 +36,7 @@ export default function Supcrtbl() {
           minerals, gases, aqueous species, and reactions at high temperatures
           and pressures. It is a FORTRAN program written originally by students
           and associates of Professor H.C. Helgeson at the University of
-          California - Berkeley, and was updated by Jim W. Johnson, Eric H
+          California - Berkeley and was updated by Jim W. Johnson, Eric H
           Oelkers and Everett Shock up to 1992 (Johnson et al., 1992). The
           original program uses the internally consistent database of minerals
           and gases from Helgeson et al. (1978). The Maier-Kelley heat capacity
@@ -56,14 +48,15 @@ export default function Supcrtbl() {
           accordingly to accommodate the different heat capacity function,
           volume as a function of temperature and pressure, and mineral phase
           transition using the Landau model (Holland and Powell, 1998). We also
-          added more species to the database. This includes arsenic minerals and
+          added more species to the database. These include rare earth element
+          minerals and solids (Pan, Zhu, and others, 2024), arsenic minerals and
           aqueous species, aluminum species from Tagirov and Schott (2001),
           aqueous silica from Apps and Spycher (2004) and Stefasson (2001), and
           dawsonite from Benezeth et al. (2007). The stated temperature and
           pressure ranges for aqueous species are from 1 to 5000 bars and 0° to
-          1000°C, but for minerals the ranges exceed the original limits stated
-          in Johnson et al. (1992), but vary for individual species. Please
-          check carefully.
+          1000°C; for minerals the ranges exceed the original limits stated in
+          Johnson et al. (1992); but vary for individual species. Please check
+          carefully.
         </p>
         <p>
           Please refer the following article when you use of the sᴜᴘᴄʀᴛʙʟ code
@@ -94,19 +87,18 @@ export default function Supcrtbl() {
         </p>
 
         <p>
-          The computer code and database presented here was put together to
-          accommodate the needs of our departmental colleagues and students in
-          petrological research, and was a collective effort by many of Zhu’s
-          students over several years: Peng Lu (now at Saudi Aramco), Yanyan
-          Chen (now at Petro China), Guanru Zhang (now a professor at Chengdu
-          Univ. of Technology), Kurt Zimmer (now a Data Science Manager at
-          Wayfair), Yilun Zhang (now a senior scientist at InterTek
-          environmental services), and Kevin Tu (undergrad in IU School of
-          Informatics, Computing, and Engineering). Many parts are untested, and
-          the users assume all responsibilities. We will continue making
-          corrections. Kindly send comments and corrections to Chen Zhu at
-          <a className="App-links__item m-2" href="mailto:supcrt@indiana.edu">
-            supcrt@indiana.edu.
+          The computer code and database presented here was put together by many
+          of Zhu’s students over several years: Peng Lu (now at Saudi Aramco),
+          Yanyan Chen (now at Petro China), Guanru Zhang (now a professor at
+          Chengdu Univ. of Technology), Kurt Zimmer (now a Data Science Manager
+          at Wayfair), Yilun Zhang (now a senior scientist at InterTek
+          environmental services), and undergrads in the Luddy School of
+          Informatics, Computing, and Engineering (Kevin Tu, Rob Hageboeck,
+          Ranvir Virk Singh). Many parts are untested, and the users assume all
+          responsibilities. We will continue making corrections. Kindly send
+          comments and corrections to Chen Zhu at
+          <a className="App-links__item m-2" href="mailto:supcrt@iu.edu">
+            supcrt@iu.edu.
           </a>
         </p>
         <br />
@@ -115,16 +107,10 @@ export default function Supcrtbl() {
           the many different versions of OSX, please use the online version
           instead.
         </p>
-        <br />
-        <p>
-          This material was partly supported by NSF grant EAR-1926734, the
-          endowment for the Haydn Murray Chair, and the Office of the Vice
-          Provost for Research of Indiana University.
-        </p>
       </div>
 
       <div className="mt-5">
-        <h2 className="font-weight-bold">DISCLAMER</h2>
+        <h2 className="font-weight-bold">DISCLAIMER</h2>
         <p>
           This material was prepared, in part, sponsored by an agency of the
           United States Government or Indiana University. Neither the United
@@ -138,6 +124,151 @@ export default function Supcrtbl() {
           sᴜᴘᴄʀᴛʙʟ is provided under this Creative Commons closed source license
         </p>
       </div>
+
+      <Container className="py-4" style={{ backgroundColor: "#FFFFFF" }}>
+        <Row className="my-4">
+          <Col>
+            <h2>List of changes in databases (Table 4)</h2>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={3} className="mb-4">
+            <ListGroup className="text-center">
+              <ListGroupItem variant="dark">
+                <Badge pill bg="dark" text="white">
+                  SUPCRT96.dat
+                </Badge>
+              </ListGroupItem>
+              <ListGroupItem variant="light">Aqueous Species</ListGroupItem>
+              <ListGroupItem>
+                Al-bearing species and NaOH from Pokrovskii and Helgeson (1995).
+              </ListGroupItem>
+              <ListGroupItem>
+                Metal-organic complexes and other organic compounds from Haas{" "}
+                <em>et al.</em> (1995); and references therein.
+              </ListGroupItem>
+              <ListGroupItem>
+                Palladium from Sassani and Shock (1998).
+              </ListGroupItem>
+              <ListGroupItem>
+                All other species from Sverjensky<em>et al.</em> (1997) and
+                those internally consistent to Sverjensky <em>et al.</em> (1997)
+                in earlier Helgeson and co-workers’ publications.
+              </ListGroupItem>
+              <ListGroupItem variant="light">Minerals</ListGroupItem>
+              <ListGroupItem>
+                Al oxyhydroxides from Pokrovskii and Helgeson (1995); all others
+                from Helgeson <em>et al.</em> (1978).
+              </ListGroupItem>
+            </ListGroup>
+          </Col>
+
+          <Col md={3} className="mb-4">
+            <ListGroup className="text-center">
+              <ListGroupItem variant="dark">
+                <Badge pill bg="dark" text="white">
+                  SLOP98.dat
+                </Badge>
+              </ListGroupItem>
+              <ListGroupItem variant="light">Aqueous Species</ListGroupItem>
+              <ListGroupItem>
+                Al-bearing species, from Shock <em>et al.</em> (1997b).
+              </ListGroupItem>
+              <ListGroupItem>
+                Metal-organic complexes and other organic compounds from Haas{" "}
+                <em>et al.</em> (1995); and references therein.
+              </ListGroupItem>
+              <ListGroupItem>
+                Uranium from Shock <em>et al.</em> (1997a); Platinum-Group from
+                Sassani and Shock (1998).
+              </ListGroupItem>
+              <ListGroupItem>
+                All other species from Sverjensky <em>et al.</em> (1997) and
+                those internally consistent to Sverjensky <em>et al.</em> (1997)
+                in earlier Helgeson and co-workers’ publications.
+              </ListGroupItem>
+              <ListGroupItem variant="light">Minerals</ListGroupItem>
+              <ListGroupItem>
+                Helgeson <em>et al.</em> (1978).
+              </ListGroupItem>
+            </ListGroup>
+          </Col>
+
+          <Col md={3} className="mb-4">
+            <ListGroup className="text-center">
+              <ListGroupItem variant="dark">
+                <Badge pill bg="dark" text="white">
+                  SLOP07.dat
+                </Badge>
+              </ListGroupItem>
+              <ListGroupItem variant="light">Aqueous Species</ListGroupItem>
+              <ListGroupItem>
+                Al-bearing species, from Shock <em>et al.</em> (1997b).
+              </ListGroupItem>
+              <ListGroupItem>
+                Metal-organic complexes and other organic compounds from Shock
+                (2009); and references therein.
+              </ListGroupItem>
+              <ListGroupItem>
+                Uranium from Shock <em>et al.</em> (1997a); Platinum-Group from
+                Sassani and Shock (1998); Actinides from Murphy and Shock
+                (1999).
+              </ListGroupItem>
+              <ListGroupItem>
+                All other species from Sverjensky <em>et al.</em> (1997) and
+                those internally consistent to Sverjensky <em>et al.</em> (1997)
+                in earlier Helgeson and co-workers’ publications.
+              </ListGroupItem>
+              <ListGroupItem variant="light">Minerals</ListGroupItem>
+              <ListGroupItem>
+                Helgeson <em>et al.</em> (1978).
+              </ListGroupItem>
+            </ListGroup>
+          </Col>
+
+          <Col md={3} className="mb-4">
+            <ListGroup className="text-center">
+              <ListGroupItem variant="dark">
+                <Badge pill bg="dark" text="white">
+                  SUPCRTBL.dat
+                </Badge>
+              </ListGroupItem>
+              <ListGroupItem variant="light">Aqueous Species</ListGroupItem>
+              <ListGroupItem>
+                Al-bearing species from Tagirov and Schott (2001).
+              </ListGroupItem>
+              <ListGroupItem>
+                Metal-organic complexes and other organic compounds from Dale{" "}
+                <em>et al.</em> (1997); and references therein.
+              </ListGroupItem>
+              <ListGroupItem>
+                SiO<sub>2</sub> and HSiO<sub>3</sub>
+                <sup>-</sup> from Apps and Spycher (2004), Stefansson (2001).
+              </ListGroupItem>
+              <ListGroupItem>
+                As-bearing species from Nordstrom and Archer (2002)
+                Metal-arsenate and metal-arsenite aqueous complexes from Marini
+                and Accornero (2010).
+              </ListGroupItem>
+              <ListGroupItem>
+                All other species from Sverjensky <em>et al.</em> (1997) and
+                those internally consistent to Sverjensky <em>et al.</em> (1997)
+                in earlier Helgeson and co-workers’ publications.
+              </ListGroupItem>
+              <ListGroupItem variant="light">Minerals</ListGroupItem>
+              <ListGroupItem>
+                Holland and Powell (2011); Boehmite from Hemingway{" "}
+                <em>et al.</em> (1991); Gibbsite from Robie <em>et al.</em>{" "}
+                (1978); Dawsonite from this study; Arsenopyrite from Ball and
+                Nordstrom (1991); Scorodite and Ferric-As,am from Langmuir{" "}
+                <em>et al.</em> (2006); Barium-As and Barium-H-As from Zhu{" "}
+                <em>et al.</em> (2005); all other As-bearing solids from
+                Nordstrom and Archer (2002).
+              </ListGroupItem>
+            </ListGroup>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }

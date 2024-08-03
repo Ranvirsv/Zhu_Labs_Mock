@@ -1,4 +1,3 @@
-import React from "react";
 import "./App.scss";
 import iublogo from "./assets/iublogo.png";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -15,8 +14,14 @@ import PhreeqcOnline from "./pages/PHREEQC/PhreeqcOnline";
 import SolubilityCalculator from "./pages/SolubilityCalculator/SolubilityCalculator";
 import H2SCalculatorOnline from "./pages/H2SCalculator/H2SCalculatorOnline";
 import RateCalculatorOnline from "./pages/RateCalculator/RateCalculatorOnline";
+import Login from "./pages/Login/Login";
+import AdminPage from "./pages/Admin/AdminPage";
+import Footer from "./Footer";
+import PrivacyPage from "./pages/Privacy/Privacy"
 
 function App() {
+  const isAuthenticated = localStorage.getItem("email");
+  const adminRights = localStorage.getItem("isAdmin");
   return (
     <Router>
       <div className="App">
@@ -29,32 +34,68 @@ function App() {
           </div>
         </div>
         <NavBar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/Supcrtbl" element={<Supcrtbl />} />
-          <Route path="/PHREEQC" element={<PHREEQC />} />
-          <Route path="/CotwoCalculator" element={<CotwoCalculator />} />
-          <Route path="/RateCalculator" element={<RateCalculator />} />
-          <Route path="/RateScripts" element={<RateScripts />} />
-          <Route path="/H2SCalculator" element={<H2SCalculator />} />
-          <Route
-            path="/SupcrtblOnlineInputFile"
-            element={<SupcrtbOnlineInputFile />}
-          />
-          <Route path="/PhreeqcOnline" element={<PhreeqcOnline />} />
-          <Route
-            path="/SolubilityCalculator"
-            element={<SolubilityCalculator />}
-          />
-          <Route
-            path="/H2SCalculatorOnline"
-            element={<H2SCalculatorOnline />}
-          />
-          <Route
-            path="/RateCalculatorOnline"
-            element={<RateCalculatorOnline />}
-          />
-        </Routes>
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route
+              path="/Supcrtbl"
+              element={isAuthenticated ? <Supcrtbl /> : <Login />}
+            />
+            <Route
+              path="/PHREEQC"
+              element={isAuthenticated ? <PHREEQC /> : <Login />}
+            />
+            <Route
+              path="/CotwoCalculator"
+              element={isAuthenticated ? <CotwoCalculator /> : <Login />}
+            />
+            <Route
+              path="/RateCalculator"
+              element={isAuthenticated ? <RateCalculator /> : <Login />}
+            />
+            <Route
+              path="/RateScripts"
+              element={isAuthenticated ? <RateScripts /> : <Login />}
+            />
+            <Route
+              path="/H2SCalculator"
+              element={isAuthenticated ? <H2SCalculator /> : <Login />}
+            />
+            <Route
+              path="/SupcrtblOnlineInputFile"
+              element={isAuthenticated ? <SupcrtbOnlineInputFile /> : <Login />}
+            />
+            <Route
+              path="/PhreeqcOnline"
+              element={isAuthenticated ? <PhreeqcOnline /> : <Login />}
+            />
+            <Route
+              path="/SolubilityCalculator"
+              element={isAuthenticated ? <SolubilityCalculator /> : <Login />}
+            />
+            <Route
+              path="/H2SCalculatorOnline"
+              element={isAuthenticated ? <H2SCalculatorOnline /> : <Login />}
+            />
+            <Route
+              path="/RateCalculatorOnline"
+              element={isAuthenticated ? <RateCalculatorOnline /> : <Login />}
+            />
+            <Route
+              path="/Login"
+              element={isAuthenticated ? <HomePage /> : <Login />}
+            />
+            <Route
+              path="/AdminPage"
+              element={isAuthenticated && adminRights ? <AdminPage /> : <></>}
+            />
+            <Route
+              path="/Privacy"
+              element={<PrivacyPage />}
+            />
+          </Routes>
+        </div>
+        <Footer />
       </div>
     </Router>
   );

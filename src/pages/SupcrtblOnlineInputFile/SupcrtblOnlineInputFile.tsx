@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../App.scss";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Autocomplete from "react-autocomplete";
 import { headerNameMap, headerValueMap, resetMap } from "./Constants";
+import { Card, Col, Container, Row } from "react-bootstrap";
 
 interface RadioOption {
   [header: string]: [boolean, Record<string, boolean>];
@@ -12,9 +14,106 @@ interface StateOption {
   [key: string]: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+interface DBMap {
+  [key: string]: string;
+}
+
 interface FormRadioOptions extends Array<RadioOption> {}
 
 export default function SupcrtbOnlineInputFile() {
+  const [species, setSpecies] = useState<string[]>([]);
+  const [filteredSpecies, setFilteredSpecies] = useState<string[]>([]);
+  const [reactionInputs, setReactionInputs] = useState<string[]>([""]);
+  const [selectedDatabase, setSelectedDatabase] = useState<string>("dpronsbl");
+  const [reactionString, setReactionString] = useState<string>("");
+  const databaseMap: DBMap = {
+    dpronsbl: "supcrtbl",
+    dpronsbl_ree: "supcrtbl_ree",
+  };
+
+  useEffect(() => {
+    fetchSpeciesData(databaseMap[selectedDatabase]);
+  }, [databaseMap[selectedDatabase]]);
+
+  useEffect(() => {
+    setReactionString(reactionInputs.join("\n"));
+  }, [reactionInputs]);
+
+  const fetchSpeciesData = async (database: string) => {
+    try {
+      const response = await fetch(
+        `https://js2test.ear180013.projects.jetstream-cloud.org/DB.php?query=Name-${database}`
+      );
+      const data: Record<string, string[]> = await response.json();
+      console.log("Fetched species data:", data); // Log the fetched data
+
+      // Flatten the nested arrays into a single array
+      const allSpecies = Object.values(data).flat();
+      console.log("Flattened species data:", allSpecies); // Log the flattened data
+
+      setSpecies(allSpecies);
+      setFilteredSpecies(allSpecies);
+    } catch (error) {
+      console.error("Error fetching species data:", error);
+    }
+  };
+
+  const handleDatabaseChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    setSelectedDatabase(event.target.value);
+  };
+
+  const handleInputChange = (
+    index: number,
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    value: string
+  ) => {
+    const newInputs = [...reactionInputs];
+    newInputs[index] = value;
+    setReactionInputs(newInputs);
+
+    if (!species || species.length === 0) {
+      setFilteredSpecies([]);
+      return;
+    }
+
+    const lines = value.split("\n");
+    const lastLine = lines[lines.length - 1];
+    const numericPart = lastLine.match(/^[\d\s-]*/)?.[0] || "";
+    const alphaPart = lastLine.replace(/^[\d\s-]*/, "");
+
+    if (alphaPart.trim() === "") {
+      setFilteredSpecies(species);
+      return;
+    }
+
+    const filtered = species.filter((specie) =>
+      specie.toLowerCase().includes(alphaPart.toLowerCase())
+    );
+
+    setFilteredSpecies(filtered);
+  };
+
+  const handleSelect = (index: number, val: string) => {
+    const newInputs = [...reactionInputs];
+    const lines = newInputs[index].split("\n");
+    const lastLine = lines.pop() || "";
+    const numericPart = lastLine.match(/^[\d\s-]*/)?.[0] || "";
+    const newLine = numericPart + val;
+    newInputs[index] = [...lines, newLine].join("\n");
+    setReactionInputs(newInputs);
+  };
+
+  const addNewLine = () => {
+    setReactionInputs([...reactionInputs, ""]);
+  };
+
+  const handleRemoveLine = (index: number) => {
+    const newInputs = reactionInputs.filter((_, i) => i !== index);
+    setReactionInputs(newInputs);
+  };
+
   // Sub-options for "Specify solvent phase region:"
   const [isOnePhaseRegionSelected, setIsOnePhaseRegionSelected] =
     useState(false);
@@ -115,7 +214,6 @@ export default function SupcrtbOnlineInputFile() {
   };
 
   const handleCheckBoxChange = (option: string, isSelected: boolean): void => {
-    // Map option strings to state setters
     const optionStateSetters: StateOption = {
       "One-Phase Region": setIsOnePhaseRegionSelected,
       "Liquid Vapor Saturation Curve": setIsLiquidVaporSaturationCurveSelected,
@@ -226,13 +324,48 @@ export default function SupcrtbOnlineInputFile() {
       ],
     },
   ];
+
   return (
     <div className="m-5 p-5">
       <h2 className="pageHeader">SUPCRTBL ONLINE VERSION 3.0.0</h2>
       <hr />
 
+      <Container className="mt-4">
+        <Row className="justify-content-center">
+          <Col md={8}>
+            <Card
+              style={{ borderColor: "#ced4da", backgroundColor: "#ffffff" }}
+            >
+              <Card.Body>
+                <Card.Title style={{ fontWeight: "bold", color: "#343a40" }}>
+                  Acknowledgment and Citation
+                </Card.Title>
+                <Card.Text style={{ fontStyle: "italic", color: "#6c757d" }}>
+                  User please cite:
+                </Card.Text>
+                <Card.Text
+                  style={{ fontFamily: "Times New Roman", color: "purple" }}
+                >
+                  Zimmer, K., Zhang, Y.L., Lu, P., Chen, Y.Y., Zhang, G.R.,
+                  Dalkilic, M., and Zhu, C. (2016) SUPCRTBL: A revised and
+                  extended thermodynamic dataset and software package of
+                  SUPCRT92.
+                  <i> Computer and Geosciences</i> 90:97-111.{" "}
+                  <a
+                    href="https://doi.org/10.1016/j.cageo.2016.02.013"
+                    style={{ color: "crimson" }}
+                  >
+                    <b>DOI</b>
+                  </a>
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+
       <Form
-        action="http://149.165.154.118/supcrtbl/supcrtbl3.php"
+        action="https://js2test.ear180013.projects.jetstream-cloud.org/supcrtbl/supcrtbl3.php"
         method="post"
         encType="multipart/form-data"
       >
@@ -243,7 +376,11 @@ export default function SupcrtbOnlineInputFile() {
 
         <Form.Group className="mb-3" controlId="databaseFile">
           <Form.Label>Database File:</Form.Label>
-          <Form.Select name="slopFile" defaultValue="dpronsbl">
+          <Form.Select
+            name="slopFile"
+            value={selectedDatabase}
+            onChange={handleDatabaseChange}
+          >
             <option value="dpronsbl">supcrtbl.dat</option>
             <option value="dpronsbl_ree">supcrtbl_REE.dat</option>
           </Form.Select>
@@ -589,16 +726,61 @@ export default function SupcrtbOnlineInputFile() {
           <Form.Group>
             <Form.Label>
               Insert reactions here, 1 species per line, empty line between
-              reactions <br /> Numbers are the stoichiometric coefficient of the
-              species. <br /> Positive numbers are products and negative numbers
-              are reactants,
+              reactions
+              <br /> Numbers are the stoichiometric coefficient of the species.
+              <br /> Positive numbers are products and negative numbers are
+              reactants,
               <br />
-              e.g. QUARTZ {"=>"} SiO2,aq: <br />
+              e.g. QUARTZ {"=>"} SiO2,aq:
+              <br />
               <code>
-                -1 QUARTZ <br />1 SiO2,aq
+                -1 QUARTZ
+                <br />1 SiO2,aq
               </code>
             </Form.Label>
-            <Form.Control name="reaction" as="textarea"></Form.Control>
+            {reactionInputs.map((input, index) => (
+              <div
+                key={index}
+                style={{ display: "flex", alignItems: "center" }}
+              >
+                <Autocomplete
+                  getItemValue={(item: string) => item}
+                  items={filteredSpecies || []}
+                  renderItem={(item: string, isHighlighted: boolean) => (
+                    <div
+                      key={item}
+                      style={{
+                        background: isHighlighted ? "lightgray" : "white",
+                      }}
+                    >
+                      {item}
+                    </div>
+                  )}
+                  value={input}
+                  onChange={(e) => handleInputChange(index, e, e.target.value)}
+                  onSelect={(val) => handleSelect(index, val)}
+                  inputProps={{
+                    name: `reaction${index}`,
+                    style: { width: "300px", marginBottom: "10px" },
+                  }}
+                />
+                <Button
+                  variant="danger"
+                  onClick={() => handleRemoveLine(index)}
+                  style={{ marginLeft: "10px" }}
+                >
+                  Remove
+                </Button>
+              </div>
+            ))}
+            <Button variant="secondary" onClick={addNewLine}>
+              Add New Line
+            </Button>
+            <Form.Control
+              type="hidden"
+              name="reaction"
+              value={reactionString}
+            />
           </Form.Group>
         ) : (
           <></>
