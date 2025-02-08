@@ -1,0 +1,14 @@
+'''
+1. File encoding is set to UTF-8, which is common and supports virtually all characters. Ensures 
+   consistency in character encoding when working across different platforms and editors.
+
+2. Trims any unnecessary trailing whitespace; 
+  - Note This works for the main code files JS, JSX, TSX, CSS, SCSS. 
+  But it does not work for that this does not work for all files e.g. PHP
+
+3. Ensures line endings are LF. This works in tandem with Prettier
+'''
+[*]
+charset = utf-8
+trim_trailing_whitespace = true
+end_of_line = lf

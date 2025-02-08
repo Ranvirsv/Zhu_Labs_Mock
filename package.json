@@ -64,6 +64,7 @@
   "devDependencies": {
     "@types/chart.js": "^2.9.41",
     "@types/react-autocomplete": "^1.8.11",
-    "@types/react-google-recaptcha": "^2.1.9"
+    "@types/react-google-recaptcha": "^2.1.9",
+    "prettier": "3.4.2"
   }
 }

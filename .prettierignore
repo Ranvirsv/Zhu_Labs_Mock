@@ -1,0 +1,6 @@
+# The .prettierignore will always ignore files and directories listed in your .gitignore
+*.min.js
+*.bundle.js
+dist/
+build/
+node_modules/
