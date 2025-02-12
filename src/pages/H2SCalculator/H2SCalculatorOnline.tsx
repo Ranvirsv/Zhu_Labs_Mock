@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, ChangeEvent } from "react";
 import { Form, Button } from "react-bootstrap";
-import Chart, { ChartOptions } from "chart.js/auto";
+import Chart from "chart.js/auto";
 
 // Constants
 const labels = ["P, bar", "xH2S+xCO2", "ρ, kg/m3", "λH2S"];
@@ -397,7 +397,9 @@ export default function H2SCalculatorOnline() {
                   evt.key
                 ) && evt.preventDefault()
               }
-              onChange={(e) => onChangeNumber(e, "temp")}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                onChangeNumber(e, "temp")
+              }
               value={formData.temp}
               type="number"
             />
@@ -412,7 +414,9 @@ export default function H2SCalculatorOnline() {
                   evt.key
                 ) && evt.preventDefault()
               }
-              onChange={(e) => onChangeNumber(e, "mNaCl")}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                onChangeNumber(e, "mNaCl")
+              }
               value={formData.mNaCl}
               type="number"
             />
