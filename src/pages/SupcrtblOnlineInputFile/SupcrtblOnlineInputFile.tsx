@@ -18,27 +18,80 @@ interface DBMap {
   [key: string]: string;
 }
 
+const databaseMap: DBMap = {
+  dpronsbl: "supcrtbl",
+  dpronsbl_ree: "supcrtbl_ree",
+};
+
 interface FormRadioOptions extends Array<RadioOption> {}
 
+/**
+ * ### SupcrtbOnlineInputFile
+ * The user input page for the Super-Crit application.
+ *
+ */
 export default function SupcrtbOnlineInputFile() {
   const [species, setSpecies] = useState<string[]>([]);
   const [filteredSpecies, setFilteredSpecies] = useState<string[]>([]);
   const [reactionInputs, setReactionInputs] = useState<string[]>([""]);
   const [selectedDatabase, setSelectedDatabase] = useState<string>("dpronsbl");
   const [reactionString, setReactionString] = useState<string>("");
-  const databaseMap: DBMap = {
-    dpronsbl: "supcrtbl",
-    dpronsbl_ree: "supcrtbl_ree",
-  };
 
+  // Sub-options for "Specify solvent phase region:"
+  const [isOnePhaseRegionSelected, setIsOnePhaseRegionSelected] =
+    useState(false);
+  const [
+    isLiquidVaporSaturationCurveSelected,
+    setIsLiquidVaporSaturationCurveSelected,
+  ] = useState(false);
+
+  // Sub-options for "Specify independent state variable:"
+  const [isTemperatureDensitySelected, setIsTemperatureDensitySelected] =
+    useState(false);
+  const [isTemperaturePressureSelected, setIsTemperaturePressureSelected] =
+    useState(false);
+
+  // Sub-options for "Specify independent liq-vap saturation variable:"
+  const [isTemperatureSelected, setIsTemperatureSelected] = useState(false);
+  const [isPressureSelected, setIsPressureSelected] = useState(false);
+
+  // Sub-options for "Specify tabulation option:"
+  const [isCalculateIsochoricSelected, setIsCalculateIsochoricSelected] =
+    useState(false);
+  const [isCalculateIsothermalSelected, setIsCalculateIsothermalSelected] =
+    useState(false);
+  const [isCalculateIsoBaricSelected, setIsCalculateIsoBaricSelected] =
+    useState(false);
+
+  // Sub-options for "Would you like to use the univariant curve option?"
+  const [isUnivariantCurveYesSelected, setIsUnivariantCurveYesSelected] =
+    useState(false);
+  const [isUnivariantCurveNoSelected, setIsUnivariantCurveNoSelected] =
+    useState(false);
+
+  // Sub-options for "Specify univariant calculation option:"
+  const [isCalculateTSelected, setIsCalculateTSelected] = useState(false);
+  const [isCalculatePSelected, setIsCalculatePSelected] = useState(false);
+
+  // Sub-options for "Specify table-increment option:"
+  const [isUniformIncrementSelected, setIsUniformIncrementSelected] =
+    useState(false);
+  const [isUnequalIncrementSelected, setIsUnequalIncrementSelected] =
+    useState(false);
+
+  const [reactionFileOption, setReactionFileOption] = useState<number>(-1);
+
+  // When selectedDatabase changes, fetch new species data.
   useEffect(() => {
     fetchSpeciesData(databaseMap[selectedDatabase]);
-  }, [databaseMap[selectedDatabase]]);
+  }, [selectedDatabase]);
 
+  // Every time reactInputs changes,
   useEffect(() => {
     setReactionString(reactionInputs.join("\n"));
   }, [reactionInputs]);
 
+  // Given a database, fetch and update state containing the species
   const fetchSpeciesData = async (database: string) => {
     try {
       const response = await fetch(
@@ -58,6 +111,7 @@ export default function SupcrtbOnlineInputFile() {
     }
   };
 
+  // Handle state change when different database file is selected
   const handleDatabaseChange = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
@@ -113,50 +167,6 @@ export default function SupcrtbOnlineInputFile() {
     const newInputs = reactionInputs.filter((_, i) => i !== index);
     setReactionInputs(newInputs);
   };
-
-  // Sub-options for "Specify solvent phase region:"
-  const [isOnePhaseRegionSelected, setIsOnePhaseRegionSelected] =
-    useState(false);
-  const [
-    isLiquidVaporSaturationCurveSelected,
-    setIsLiquidVaporSaturationCurveSelected,
-  ] = useState(false);
-
-  // Sub-options for "Specify independent state variable:"
-  const [isTemperatureDensitySelected, setIsTemperatureDensitySelected] =
-    useState(false);
-  const [isTemperaturePressureSelected, setIsTemperaturePressureSelected] =
-    useState(false);
-
-  // Sub-options for "Specify independent liq-vap saturation variable:"
-  const [isTemperatureSelected, setIsTemperatureSelected] = useState(false);
-  const [isPressureSelected, setIsPressureSelected] = useState(false);
-
-  // Sub-options for "Specify tabulation option:"
-  const [isCalculateIsochoricSelected, setIsCalculateIsochoricSelected] =
-    useState(false);
-  const [isCalculateIsothermalSelected, setIsCalculateIsothermalSelected] =
-    useState(false);
-  const [isCalculateIsoBaricSelected, setIsCalculateIsoBaricSelected] =
-    useState(false);
-
-  // Sub-options for "Would you like to use the univariant curve option?"
-  const [isUnivariantCurveYesSelected, setIsUnivariantCurveYesSelected] =
-    useState(false);
-  const [isUnivariantCurveNoSelected, setIsUnivariantCurveNoSelected] =
-    useState(false);
-
-  // Sub-options for "Specify univariant calculation option:"
-  const [isCalculateTSelected, setIsCalculateTSelected] = useState(false);
-  const [isCalculatePSelected, setIsCalculatePSelected] = useState(false);
-
-  // Sub-options for "Specify table-increment option:"
-  const [isUniformIncrementSelected, setIsUniformIncrementSelected] =
-    useState(false);
-  const [isUnequalIncrementSelected, setIsUnequalIncrementSelected] =
-    useState(false);
-
-  const [reactionFileOption, setReactionFileOption] = useState<number>(-1);
 
   const resetDependentStates = (currentHeader: string) => {
     const dependencies = resetMap[currentHeader];
@@ -330,6 +340,7 @@ export default function SupcrtbOnlineInputFile() {
       <h2 className="pageHeader">SUPCRTBL ONLINE VERSION 3.0.0</h2>
       <hr />
 
+      {/* The citation card for using the software */}
       <Container className="mt-4">
         <Row className="justify-content-center">
           <Col md={8}>
@@ -369,11 +380,13 @@ export default function SupcrtbOnlineInputFile() {
         method="post"
         encType="multipart/form-data"
       >
+        {/* Input for the "Output file name" */}
         <Form.Group className="mb-3" controlId="outputFileName">
           <Form.Label>Output File Name:</Form.Label>
           <Form.Control required type="text" name="outputFile" />
         </Form.Group>
 
+        {/* Database selection input */}
         <Form.Group className="mb-3" controlId="databaseFile">
           <Form.Label>Database File:</Form.Label>
           <Form.Select
@@ -386,6 +399,7 @@ export default function SupcrtbOnlineInputFile() {
           </Form.Select>
         </Form.Group>
 
+        {/*  */}
         {formRadioOptions?.map((element, index) => {
           const header = Object.keys(element)[0];
           const [currentStateValue, optionsMap] = Object.values(element)[0];

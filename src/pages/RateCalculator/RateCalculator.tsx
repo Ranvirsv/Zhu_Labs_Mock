@@ -1,6 +1,11 @@
 import React from "react";
 import "../../App.scss";
 
+/**
+ * ### RateCalculator
+ *
+ * Disclaimer page about the rate calculator software.
+ */
 export default function RateCalculator() {
   return (
     <div className="m-5 p-5">
@@ -35,8 +40,8 @@ export default function RateCalculator() {
       <p>
         Please send comments or corrections to Professor Chen Zhu
         <a className="App-links__item m-2" href="mailto:supcrt@iu.edu">
-            supcrt@iu.edu.
-          </a>
+          supcrt@iu.edu.
+        </a>
       </p>
 
       <br />

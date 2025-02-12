@@ -4,25 +4,37 @@ import Form from "react-bootstrap/Form";
 import { Button } from "react-bootstrap";
 import { Container, Row, Col, Card } from "react-bootstrap";
 
+// List of database options that the user can select from
+const databaseOptionList: string[] = [
+  "geothermal.dat",
+  "geothermal-REE.dat",
+  "diagenesis.dat",
+  "bl-0.5kb.dat",
+  "bl-1kb.dat",
+  "bl-2kb.dat",
+  "bl-2kb-REE.dat",
+  "bl-5kb.dat",
+  "llnl-kinetics.dat",
+];
+
+/**
+ * ### PhreeqcOnline
+ *
+ * Page for the online version of the PHREEQC high temperature pressure software.
+ *
+ * ### State and Hooks
+ * - databaseOptions: Number representing the index of the selected database option.
+ *
+ */
 export default function PhreeqcOnline() {
   const [databaseOptions, setDatabaseOptions] = useState<number>(-1);
-
-  const databaseOptionList: string[] = [
-    "geothermal.dat",
-    "geothermal-REE.dat",
-    "diagenesis.dat",
-    "bl-0.5kb.dat",
-    "bl-1kb.dat",
-    "bl-2kb.dat",
-    "bl-2kb-REE.dat",
-    "bl-5kb.dat",
-    "llnl-kinetics.dat",
-  ];
 
   return (
     <div className="m-5 p-5">
       <h2 className="pageHeader">PHREEQC High Temperature Pressure.</h2>
       <hr />
+
+      {/* Card that contains acknowledgement and citations that users should use when using data from the calculator. */}
       <Container className="mt-4">
         <Row className="justify-content-center">
           <Col md={8}>
@@ -77,13 +89,17 @@ export default function PhreeqcOnline() {
         name="supcrtForm"
         action="https://js2test.ear180013.projects.jetstream-cloud.org/phreeqc/phreeqc3.php"
         method="post"
+        // Necessary since we're going to be uploading files
+        // NOTE: Make sure there's server side validation on the backend for this, since clients can bypass this restriction with developer tools.
         encType="multipart/form-data"
       >
+        {/* File input */}
         <Form.Group className="col-3">
           <Form.Label className="text-bold">Input File:</Form.Label>
           <Form.Control name="userFile" type="file" required accept=".pqi" />
         </Form.Group>
 
+        {/* Input for the name for hte output file*/}
         <Form.Group className=" my-3 col-3">
           <Form.Label className="text-bold">Name for output file</Form.Label>
           <Form.Control
@@ -97,6 +113,7 @@ export default function PhreeqcOnline() {
           />
         </Form.Group>
 
+        {/* Whether the user is going to upload a custom database file or use an existing one that we've provided (one from the list) */}
         <Form.Group>
           <Form.Label className="text-bold">Database File:</Form.Label>
           <Form.Check
@@ -117,11 +134,13 @@ export default function PhreeqcOnline() {
             onClick={() => setDatabaseOptions(1)}
           ></Form.Check>
 
+          {/* If uploading a custom file, render file input for the user */}
           {databaseOptions === 0 ? (
             <Form.Group controlId="formFile" className="my-2">
               <Form.Control type="file" />
             </Form.Group>
           ) : databaseOptions === 1 ? (
+            // Else, using an existing database file. So render a dropdown menu for the user to select from.
             <Form.Group controlId="selFile" className="my-2">
               <Form.Label>Select a database</Form.Label>
               <Form.Select
@@ -137,6 +156,7 @@ export default function PhreeqcOnline() {
               </Form.Select>
             </Form.Group>
           ) : (
+            // Else render nothing
             <></>
           )}
         </Form.Group>

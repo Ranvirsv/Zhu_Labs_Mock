@@ -1,36 +1,57 @@
 import { useState } from "react";
 import Form from "react-bootstrap/Form";
-import { IFormData } from "./ISolubilityCalculator";
 import { Button } from "react-bootstrap";
 import { Container, Row, Col, Card } from "react-bootstrap";
+
+// Type defining the shape of our form data
+type IFormData = {
+  temp: string;
+  bar: string;
+  mNaCl: string;
+};
 
 interface ICalculatorInput {
   label: string;
   name: keyof IFormData; // This ensures that name corresponds to a key in IFormData
 }
 
-export default function SolubilityCalculator() {
-  const calculatorInputs: ICalculatorInput[] = [
-    {
-      label: "Please enter a temperature (K) between 273-533:",
-      name: "temp",
-    },
-    {
-      label: "Please enter a pressure (bar) between 0-2000:",
-      name: "bar",
-    },
-    {
-      label: "Please enter NaCl (mol/kgH20) between 0-4.5:",
-      name: "mNaCl",
-    },
-  ];
+// Data to render input fields for the Solubility calculator
+const calculatorInputs: ICalculatorInput[] = [
+  {
+    label: "Please enter a temperature (K) between 273-533:",
+    name: "temp",
+  },
+  {
+    label: "Please enter a pressure (bar) between 0-2000:",
+    name: "bar",
+  },
+  {
+    label: "Please enter NaCl (mol/kgH20) between 0-4.5:",
+    name: "mNaCl",
+  },
+];
 
+/**
+ * ### Solubility Calculator
+ * The page for rendering the online solubility calculator software.
+ *
+ * ---
+ * ### State and custom hooks
+ * - formData: An object containing the form data stored on the page.
+ */
+export default function SolubilityCalculator() {
   const [formData, setFormData] = useState<IFormData>({
     temp: "",
     bar: "",
     mNaCl: "",
   });
 
+  /**
+   * Function that handles updating the state when the input fields change.
+   *
+   * @param name Name of the input field
+   * @param value Value of the associated input field
+   */
   const handleChange = (name: keyof IFormData, value: string) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -42,6 +63,8 @@ export default function SolubilityCalculator() {
     <div className="m-5 p-5">
       <h2 className="pageHeader">CO2 SOLUBILITY CALCULATOR</h2>
       <hr />
+
+      {/* Card that contains user acknowledgements and citations */}
       <Container className="mt-4">
         <Row className="justify-content-center">
           <Col md={8}>
@@ -77,12 +100,6 @@ export default function SolubilityCalculator() {
         </Row>
       </Container>
 
-      {/* <Card>
-        <Card.Body>
-          <Card.Text></Card.Text>
-        </Card.Body>
-      </Card> */}
-
       <pre className="mt-3">
         CO <sub>2</sub> solubility in aqueous NaCl solution--------- <br />
         Duan Z, Sun R, Zhu C, Chou I (Marine Chemistry, 2006, v98, 131-139)
@@ -91,6 +108,7 @@ export default function SolubilityCalculator() {
         Unit---T: K, P(total): bar, mNaCl and mCO2: mol/kgH2O <br />
       </pre>
 
+      {/* Form that does a get request to our PHP backend; data carried using query parameter. */}
       <Form
         action={`https://js2test.ear180013.projects.jetstream-cloud.org/co2/co2calc3.php?temp=${formData.temp}&bar=${formData.bar}&mNaCl=${formData.mNaCl}`}
         method="get"

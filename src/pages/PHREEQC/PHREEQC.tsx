@@ -1,33 +1,40 @@
 import React from "react";
 import "../../App.scss";
 
+const links = [
+  {
+    name: "Click here to use the online version of ᴘʜʀᴇᴇǫᴄ High T P",
+    url: "/PhreeqcOnline",
+  },
+  // {
+  //   name: "Version 3 Documentation by Parkhurst and Appelo (2013)",
+  //   url: "https://pubs.usgs.gov/publication/tm6A43",
+  // },
+  // {
+  //   name: "Example Input Files",
+  //   url: "https://www.resolutionmineeis.us/documents/parkhurst-appelo-2013",
+  // },
+  {
+    name: "USGS Software User Rights Notice",
+    url: "https://water.usgs.gov/software/help/notice/",
+  },
+];
+
+/**
+ * ### PHREEQC
+ *
+ * Disclaimer page for the section where users can use PHREEQC software.
+ */
 export default function PHREEQC() {
   return (
     <div className="m-5 p-5">
       <h2 className="PHREEQC-header">Introduction to ᴘʜʀᴇᴇǫᴄ</h2>
       <div>
         <ul className="App-links">
-          {[
-            {
-              name: "Click here to use the online version of ᴘʜʀᴇᴇǫᴄ High T P",
-              url: "/PhreeqcOnline",
-            },
-            // {
-            //   name: "Version 3 Documentation by Parkhurst and Appelo (2013)",
-            //   url: "https://pubs.usgs.gov/publication/tm6A43",
-            // },
-            // {
-            //   name: "Example Input Files",
-            //   url: "https://www.resolutionmineeis.us/documents/parkhurst-appelo-2013",
-            // },
-            {
-              name: "USGS Software User Rights Notice",
-              url: "https://water.usgs.gov/software/help/notice/",
-            },
-          ].map((elemnt) => (
+          {links.map((link) => (
             <li>
-              <a className="App-links__item" href={elemnt.url}>
-                {elemnt.name}
+              <a className="App-links__item" href={link.url}>
+                {link.name}
               </a>
             </li>
           ))}
@@ -80,8 +87,8 @@ export default function PHREEQC() {
             >
               <b>DOI</b>
             </a>
-            . <br /> <br /> Pan RG and Zhu C. Linear correlations of Gibbs free energy
-            for rare earth element oxide, hydroxide, chloride, fluoride,
+            . <br /> <br /> Pan RG and Zhu C. Linear correlations of Gibbs free
+            energy for rare earth element oxide, hydroxide, chloride, fluoride,
             carbonate, and ferrite minerals and crystalline solids. Geochimica
             et Cosmochimica Acta. Submitted May 3, 2024.{" "}
             <a

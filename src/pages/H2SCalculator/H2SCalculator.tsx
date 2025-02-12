@@ -1,6 +1,9 @@
 import React from "react";
 import "../../App.scss";
 
+/**
+ * Disclaimer page for the H2S solubility calculator.
+ */
 export default function H2SCalculator() {
   return (
     <div className="m-5 p-5">

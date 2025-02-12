@@ -1,6 +1,10 @@
-import React from "react";
 import "../../App.scss";
 
+/**
+ * ### CotwoCalculator (Co2 Calculator)
+ *
+ * This component renders the introduction or disclaimer page for the Co2 calculator.
+ */
 export default function CotwoCalculator() {
   return (
     <div className="m-5 p-5">
@@ -12,7 +16,6 @@ export default function CotwoCalculator() {
           </a>
         </li>
       </ul>
-
       <br />
 
       <p>
@@ -40,9 +43,10 @@ export default function CotwoCalculator() {
       <br />
 
       <p>
-        Please send comments or corrections to Professor Chen Zhu<a className="App-links__item m-2" href="mailto:supcrt@iu.edu">
-            supcrt@iu.edu.
-          </a>
+        Please send comments or corrections to Professor Chen Zhu
+        <a className="App-links__item m-2" href="mailto:supcrt@iu.edu">
+          supcrt@iu.edu.
+        </a>
       </p>
 
       <br />
