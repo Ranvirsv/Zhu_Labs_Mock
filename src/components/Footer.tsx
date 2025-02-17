@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import iuLogo from "./assets/iu-signature.svg";
+import iuLogo from "../assets/iu-signature.svg";
 
 /**
  * ### Footer
@@ -17,8 +17,7 @@ const Footer: React.FC = () => {
         backgroundColor: "white",
         padding: "20px 0",
         borderTop: "1px solid #ccc",
-      }}
-    >
+      }}>
       <Container>
         <div className="justify-content-around d-flex flex-row">
           {/* Image that links to another page; use alt text on the image to act as a label */}
@@ -33,8 +32,7 @@ const Footer: React.FC = () => {
                 id="accessibility-link"
                 title="Having trouble accessing this web page content? Please visit this page for assistance."
                 className="external"
-                style={{ color: "crimson" }}
-              >
+                style={{ color: "crimson" }}>
                 Accessibility
               </a>
               {" | "}
@@ -42,8 +40,7 @@ const Footer: React.FC = () => {
                 href="/Privacy"
                 aria-label="Go to privacy page"
                 id="privacy-policy-link"
-                style={{ color: "crimson" }}
-              >
+                style={{ color: "crimson" }}>
                 Privacy Notice
               </a>
               {" | "}
@@ -51,8 +48,7 @@ const Footer: React.FC = () => {
                 href="https://www.iu.edu/copyright/index.html"
                 aria-label="Go to Indiana University copyright page"
                 className="external"
-                style={{ color: "crimson" }}
-              >
+                style={{ color: "crimson" }}>
                 Copyright
               </a>
             </span>
@@ -63,8 +59,7 @@ const Footer: React.FC = () => {
                 aria-label="Go to Indiana University home"
                 itemProp="url"
                 className="external"
-                style={{ color: "crimson" }}
-              >
+                style={{ color: "crimson" }}>
                 <span itemProp="name">Indiana University</span>
               </a>
             </span>

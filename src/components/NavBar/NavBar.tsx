@@ -1,12 +1,12 @@
 import "./NavBar.scss";
 import { useNavigate } from "react-router";
-
+import { ROUTES } from "../../constants/routes";
 /**
  * Links for the navbar. Some links are to other websites, but others are to
  * other pages in our React application.
  */
 const navLinks = [
-  { name: "Modeling Home", url: "/" },
+  { name: "Modeling Home", url: ROUTES.HOME },
   {
     name: "Zhu Laboratory",
     url: "https://hydrogeochem.earth.indiana.edu/index.html",
@@ -25,11 +25,11 @@ const navLinks = [
   },
   {
     name: "Login",
-    url: "/Login",
+    url: ROUTES.LOGIN,
   },
   {
     name: "Admin",
-    url: "/AdminPage",
+    url: ROUTES.ADMIN_PAGE,
   },
 ];
 
@@ -55,13 +55,13 @@ export default function NavBar() {
   const logout = () => {
     localStorage.removeItem("email");
     localStorage.removeItem("isAdmin");
-    navigate("/Login");
+    navigate(ROUTES.LOGIN);
   };
 
   return (
     <nav className="navBar navbar-expand-lg">
       <ul className="navBar__itemList">
-        {navLinks.map((link) =>
+        {navLinks.map((link, index) =>
           /**
            * + Conditional rendering:
            * - If the user is logged in and we're rendering the login link:
@@ -71,7 +71,7 @@ export default function NavBar() {
            * - Else, for all other links, render them like normal
            */
           isAuthenticated && link.name === "Login" ? (
-            <li>
+            <li key={index}>
               <p className="navBar__itemList__item" onClick={logout}>
                 Log out
               </p>
@@ -79,7 +79,7 @@ export default function NavBar() {
           ) : !adminRights && link.name === "Admin" ? (
             <></>
           ) : (
-            <li>
+            <li key={index}>
               <a className="navBar__itemList__item" href={link.url}>
                 {link.name}
               </a>
