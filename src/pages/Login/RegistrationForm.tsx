@@ -141,13 +141,12 @@ export default function RegistrationForm() {
       to_name: formData.fullName,
     };
 
+    const serviceID = "service_ccoafdl";
+    const templateID = "template_y3xj2ro";
+    const accessToken = "QSv7U0KuDZu35V1x5";
+
     emailjs
-      .send(
-        "service_ccoafdl",
-        "template_y3xj2ro",
-        templateParams,
-        "QSv7U0KuDZu35V1x5"
-      )
+      .send(serviceID, templateID, templateParams, accessToken)
       .catch((err: any) => {
         console.error("Failed to send email. Error:", err);
       });
@@ -155,15 +154,11 @@ export default function RegistrationForm() {
     // Send email to the admin
     const adminEmailParams = {
       to_email: "zhulabweb@gmail.com",
+      bcc_emails: "lgong@iu.edu",
     };
 
     emailjs
-      .send(
-        "service_ccoafdl",
-        "template_6fq5eod",
-        adminEmailParams,
-        "QSv7U0KuDZu35V1x5"
-      )
+      .send(serviceID, templateID, adminEmailParams, accessToken)
       .catch((err: any) => {
         console.error("Failed to send admin email. Error:", err);
       });
@@ -248,7 +243,8 @@ export default function RegistrationForm() {
               <span
                 className="text-primary text-decoration-underline"
                 style={{ cursor: "pointer" }}
-                onClick={() => setShowTerms(true)}>
+                onClick={() => setShowTerms(true)}
+              >
                 Terms of Use
               </span>
             </span>

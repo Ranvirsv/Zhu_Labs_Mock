@@ -2,6 +2,7 @@
 
 import { ReactNode } from "react";
 import { Navigate, useLocation } from "react-router";
+import { ROUTES } from "../constants/routes";
 
 interface ProtectedRouteProps {
   isAuth: boolean;
@@ -34,8 +35,10 @@ export default function ProtectedRoute({
   if (!isAuth) {
     return (
       <Navigate
-        to="/Auth/Login"
+        to={ROUTES.LOGIN}
         replace={true}
+        // NOTE: Later if you want to add AuthContext and whatnot, this will be useful for a
+        // smart redirects in the future.
         state={{ from: location.pathname }}
       />
     );
@@ -45,7 +48,7 @@ export default function ProtectedRoute({
   if (requireAdmin && !isAdmin) {
     return (
       <Navigate
-        to="/Unauthorized"
+        to={ROUTES.LOGIN}
         replace={true}
         state={{ from: location.pathname }}
       />
