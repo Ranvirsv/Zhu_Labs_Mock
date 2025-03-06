@@ -9,6 +9,18 @@ import {
 } from "react-bootstrap";
 import "../../App.scss";
 
+const links = [
+  {
+    name: "Online Version of Supcrtbl",
+    url: "/SupcrtblOnlineInputFile",
+  },
+];
+
+/**
+ * ### Supcrtbl ("Super-Crit-Table")
+ * Disclaimer and information page for the online super crit application.
+ *
+ */
 export default function Supcrtbl() {
   return (
     <div className="p-5 mx-5">
@@ -17,15 +29,10 @@ export default function Supcrtbl() {
       </h2>
       <div>
         <ul className="App-links">
-          {[
-            {
-              name: "Online Version of Supcrtbl",
-              url: "/SupcrtblOnlineInputFile",
-            },
-          ].map((elemnt) => (
+          {links.map((e) => (
             <li>
-              <a className="App-links__item" href={elemnt.url}>
-                {elemnt.name}
+              <a className="App-links__item" href={e.url}>
+                {e.name}
               </a>
             </li>
           ))}

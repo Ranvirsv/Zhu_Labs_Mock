@@ -3,9 +3,18 @@ import "./HomePage.scss";
 import Modal from "react-bootstrap/Modal";
 import worldMap from "../../assets/worldMap.jpg";
 
+/**
+ * ### HomePage
+ *
+ * Component to show the home page of the website.
+ *
+ * ### State and Behavior
+ * - `show`: Boolean indicating whether the modal is rendered.
+ */
 export default function HomePage() {
   const [show, setShow] = useState(true);
 
+  // Closes the modal
   const handleClose = () => setShow(false);
 
   return (
@@ -162,7 +171,8 @@ export default function HomePage() {
         the rate calculator below. All phases in the library are included in the
         calculator.
       </p>
-      {/* <hr />
+
+      <hr />
       <div className="mb-3">
         <a className="linkText" href="/H2SCalculator">
           H<sub>2</sub>S Calculator
@@ -170,7 +180,8 @@ export default function HomePage() {
       </div>
       <p>An online program to calculate H2S solubility.</p>
 
-      <hr />
+      {/* For the future */}
+      {/* <hr />
       <div className="mb-3">
         <a className="linkText" href="/">
           CH<sub>4</sub> Calculator

@@ -1,6 +1,25 @@
-import React from "react";
 import "../../App.scss";
 
+const links = [
+  {
+    name: "Download README",
+    url: "http://149.165.154.118/basic_scripts/download_files/README.txt",
+  },
+  // {
+  //   name: "Download complete library",
+  //   url: "http://149.165.154.118/basic_scripts/download_files/rate_scripts.zip",
+  // },
+  {
+    name: "Link to GitHub",
+    url: "https://github.com/HydrogeoIU/PHREEQC-Kinetic-Library",
+  },
+];
+
+/**
+ * ### RateScripts
+ * Page for showing the disclaimer and downloads links to the PHREEQC library.
+ *
+ */
 export default function RateScripts() {
   return (
     <div className="m-5 p-5">
@@ -44,9 +63,10 @@ export default function RateScripts() {
       </p>
 
       <p>
-        Kindly report errors to Professor Chen Zhu<a className="App-links__item m-2" href="mailto:supcrt@iu.edu">
-            supcrt@iu.edu.
-          </a>
+        Kindly report errors to Professor Chen Zhu
+        <a className="App-links__item m-2" href="mailto:supcrt@iu.edu">
+          supcrt@iu.edu.
+        </a>
         Tutorials, corrections, and updates may be found at Professor Zhu’s
         research web site{" "}
         <a
@@ -62,20 +82,7 @@ export default function RateScripts() {
       <div>
         <h2>DOWNLOAD</h2>
         <ul>
-          {[
-            {
-              name: "Download README",
-              url: "http://149.165.154.118/basic_scripts/download_files/README.txt",
-            },
-            {
-              name: "Download complete library",
-              url: "http://149.165.154.118/basic_scripts/download_files/rate_scripts.zip",
-            },
-            {
-              name: "Link to GitHub",
-              url: "https://github.com/HydrogeoIU/PHREEQC-Kinetic-Library",
-            },
-          ].map((elem) => (
+          {links.map((elem) => (
             <li>
               <a className="App-links__item" href={elem.url}>
                 {elem.name}

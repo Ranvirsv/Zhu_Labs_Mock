@@ -1,43 +1,61 @@
 import { useState, useEffect } from "react";
-import { Form, Row, Col, Button } from "react-bootstrap";
-import { IFormData } from "./IRateCalculator";
+import { Form, Row, Button } from "react-bootstrap";
 
+// Interface for the form data object
+type IFormData = {
+  mineral: string;
+  temp: string;
+  pH: string;
+  feINPUT: string;
+  oINPUT: string;
+  co2INPUT: string;
+};
+
+interface ICalculatorInput {
+  label: string;
+  name: keyof IFormData; // This ensures that name corresponds to a key in IFormData
+}
+
+// Array of objects containing the input fields for the Rate Calculator
+const calculatorInputs: ICalculatorInput[] = [
+  {
+    label: "Please choose the desired mineral for calculation:",
+    name: "mineral",
+  },
+  {
+    label: "Please enter a constant temperature (°C):",
+    name: "temp",
+  },
+  {
+    label: "Please enter a constant pH:",
+    name: "pH",
+  },
+  {
+    label: "Please enter the activity of pFe3+:",
+    name: "feINPUT",
+  },
+  {
+    label: "Please enter the activity of pO2:",
+    name: "oINPUT",
+  },
+  {
+    label:
+      "Please enter the activity of pHCO3- for Calcite or pCO2 for other carbonate minerals:",
+    name: "co2INPUT",
+  },
+];
+
+/**
+ * ### RateCalculatorOnline
+ *
+ * Page for the online version of the Rate Calculator software.
+ *
+ * ### State and Hooks
+ * - speciesArray: Array of strings representing the species that can be selected.
+ * - formData: Object containing the form data.
+ */
 export default function RateCalculatorOnline() {
   const [speciesArray, setSpeciesArray] = useState<string[]>([]);
-
-  interface ICalculatorInput {
-    label: string;
-    name: keyof IFormData; // This ensures that name corresponds to a key in IFormData
-  }
-
-  const calculatorInputs: ICalculatorInput[] = [
-    {
-      label: "Please choose the desired mineral for calculation:",
-      name: "mineral",
-    },
-    {
-      label: "Please enter a constant temperature (°C):",
-      name: "temp",
-    },
-    {
-      label: "Please enter a constant pH:",
-      name: "pH",
-    },
-    {
-      label: "Please enter the activity of pFe3+:",
-      name: "feINPUT",
-    },
-    {
-      label: "Please enter the activity of pO2:",
-      name: "oINPUT",
-    },
-    {
-      label:
-        "Please enter the activity of pHCO3- for Calcite or pCO2 for other carbonate minerals:",
-      name: "co2INPUT",
-    },
-  ];
-
   const [formData, setFormData] = useState<IFormData>({
     mineral: "",
     temp: "",
@@ -47,21 +65,28 @@ export default function RateCalculatorOnline() {
     co2INPUT: "",
   });
 
+  /**
+   * Function handles the state change of the input fields.
+   * It updates the formData object with the new value.
+   *
+   * @param name Name of the input field being changed
+   * @param value Value of the asssociated input field
+   */
   const handleChange = (name: keyof IFormData, value: string) => {
     setFormData((prevState) => ({
       ...prevState,
       [name]: value,
     }));
-    console.log(formData);
   };
 
+  // Fetches the species data from the server
   useEffect(() => {
     fetch(
       `https://js2test.ear180013.projects.jetstream-cloud.org/DB.php?query=Species`
     )
       .then((response) => response.json())
       .then((response) => setSpeciesArray(response.Species))
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
   }, []);
 
   return (
@@ -72,6 +97,7 @@ export default function RateCalculatorOnline() {
         action="https://js2test.ear180013.projects.jetstream-cloud.org/rateconstants/rateconstants3.php"
         method="post"
       >
+        {/* Render form inputs */}
         {calculatorInputs.map((input, index) => (
           <Form.Group
             as={Row}

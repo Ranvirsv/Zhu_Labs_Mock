@@ -1,10 +1,13 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import iuLogo from "./assets/iu-signature.svg";
-import { useNavigate } from "react-router";
 
+/**
+ * ### Footer
+ * Component that displays the footer for the Zhu Labs Application.
+ */
 const Footer: React.FC = () => {
-  const navigate = useNavigate();
+  const currentYear = new Date().getFullYear();
   return (
     <footer
       role="contentinfo"
@@ -18,17 +21,15 @@ const Footer: React.FC = () => {
     >
       <Container>
         <div className="justify-content-around d-flex flex-row">
-          <img
-            onClick={() => navigate("https://www.iu.edu/index.html")}
-            src={iuLogo}
-            className="col-3"
-            alt="Indiana University"
-          />
-
-          <div className="text-center d-flex flex-row align-items-center ">
+          {/* Image that links to another page; use alt text on the image to act as a label */}
+          <a href="https://www.iu.edu/index.html" className="col-3">
+            <img src={iuLogo} alt="Go to Indiana University home" />
+          </a>
+          <nav className="text-center d-flex flex-row align-items-center ">
             <span>
               <a
                 href="https://accessibility.iu.edu/assistance/index.html"
+                aria-label="Go to Indiana University accessibility page"
                 id="accessibility-link"
                 title="Having trouble accessing this web page content? Please visit this page for assistance."
                 className="external"
@@ -37,12 +38,18 @@ const Footer: React.FC = () => {
                 Accessibility
               </a>
               {" | "}
-              <a href="/Privacy" id="privacy-policy-link" style={{ color: "crimson" }}>
+              <a
+                href="/Privacy"
+                aria-label="Go to privacy page"
+                id="privacy-policy-link"
+                style={{ color: "crimson" }}
+              >
                 Privacy Notice
               </a>
               {" | "}
               <a
                 href="https://www.iu.edu/copyright/index.html"
+                aria-label="Go to Indiana University copyright page"
                 className="external"
                 style={{ color: "crimson" }}
               >
@@ -50,9 +57,10 @@ const Footer: React.FC = () => {
               </a>
             </span>
             <span>
-              © 2024 The Trustees of{" "}
+              © {currentYear} The Trustees of{" "}
               <a
                 href="https://www.iu.edu/index.html"
+                aria-label="Go to Indiana University home"
                 itemProp="url"
                 className="external"
                 style={{ color: "crimson" }}
@@ -60,7 +68,7 @@ const Footer: React.FC = () => {
                 <span itemProp="name">Indiana University</span>
               </a>
             </span>
-          </div>
+          </nav>
         </div>
       </Container>
     </footer>

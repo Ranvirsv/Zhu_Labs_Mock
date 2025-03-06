@@ -1,36 +1,41 @@
+/**
+ * File contains all the constants that are used in the Supcrtbl online
+ * application.
+ */
+
 export const headerNameMap: Record<string, string> = {
-    "Output File Name:": "outputFile",
-    "Database File:": "slopFile",
-    "Specify solvent phase region:": "solventPhase",
-    "Specify independent liq-vap saturation variable:": "lipVapSatVar",
-    "Specify independent State Variables:": "independentStateVar",
-    "Specify tabulation option(Baric, Thermal):": "tabulationBaricOption",
-    "Would you like to use the univariant curve option? (i.e., calculate T(logK,P) or P(logK,T):": "univariantCurveOption",
-    "Specify tabulation option(Chronic, Thermal):": "tabulationChoricOption",
-    "Specify table-increment option:": "tableIncrement",
-    "Specify univariant calculation option:": "univariantCalcOption"
-}
+  "Output File Name:": "outputFile",
+  "Database File:": "slopFile",
+  "Specify solvent phase region:": "solventPhase",
+  "Specify independent liq-vap saturation variable:": "lipVapSatVar",
+  "Specify independent State Variables:": "independentStateVar",
+  "Specify tabulation option(Baric, Thermal):": "tabulationBaricOption",
+  "Would you like to use the univariant curve option? (i.e., calculate T(logK,P) or P(logK,T):":
+    "univariantCurveOption",
+  "Specify tabulation option(Chronic, Thermal):": "tabulationChoricOption",
+  "Specify table-increment option:": "tableIncrement",
+  "Specify univariant calculation option:": "univariantCalcOption",
+};
 
 export const headerValueMap: Record<string, string> = {
-    "One-Phase Region": "0",
-    "Liquid Vapor Saturation Curve": "1",
-    "Temprature (degCel), density(H2O) (g/cc)": "0",
-    "Temprature (degCel), pressure (bars)": "1",
-    "Calculate ISOCHORIC (T) tables": "0",
-    "Calculate ISOTHERMAL (D) tables": "1",
-    "Yes": "0",
-    "No": "1",
-    "Calculate T (logK, isobars)": "0",
-    "Calculate P (logK, isotherms)": "1",
-    "Calculate ISOBARIC (P) tables": "0",
-    "Temprature (degCel)": "0",
-    "Pressure (bars)": "1",
-    "Calculate tables having uniform increments": "0",
-    "Calculate tables having unequal increments": "1",
-}
+  "One-Phase Region": "0",
+  "Liquid Vapor Saturation Curve": "1",
+  "Temprature (degCel), density(H2O) (g/cc)": "0",
+  "Temprature (degCel), pressure (bars)": "1",
+  "Calculate ISOCHORIC (T) tables": "0",
+  "Calculate ISOTHERMAL (D) tables": "1",
+  Yes: "0",
+  No: "1",
+  "Calculate T (logK, isobars)": "0",
+  "Calculate P (logK, isotherms)": "1",
+  "Calculate ISOBARIC (P) tables": "0",
+  "Temprature (degCel)": "0",
+  "Pressure (bars)": "1",
+  "Calculate tables having uniform increments": "0",
+  "Calculate tables having unequal increments": "1",
+};
 
-export 
-const resetMap: Record<string, string[]> = {
+export const resetMap: Record<string, string[]> = {
   "One-Phase Region": [
     "isLiquidVaporSaturationCurveSelected",
     "isTemperatureDensitySelected",
@@ -140,12 +145,8 @@ const resetMap: Record<string, string[]> = {
     "isUnequalIncrementSelected",
     "isCalculateTSelected",
   ],
-  "Calculate tables having uniform increments": [
-    "isUnequalIncrementSelected",
-  ],
-  "Calculate tables having unequal increments": [
-    "isUniformIncrementSelected",
-  ],
+  "Calculate tables having uniform increments": ["isUnequalIncrementSelected"],
+  "Calculate tables having unequal increments": ["isUniformIncrementSelected"],
   "Temprature (degCel)": ["isPressureSelected"],
   "Pressure (bars)": ["isTemperatureSelected"],
 };

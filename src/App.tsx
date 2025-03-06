@@ -17,7 +17,7 @@ import RateCalculatorOnline from "./pages/RateCalculator/RateCalculatorOnline";
 import Login from "./pages/Login/Login";
 import AdminPage from "./pages/Admin/AdminPage";
 import Footer from "./Footer";
-import PrivacyPage from "./pages/Privacy/Privacy"
+import PrivacyPage from "./pages/Privacy/Privacy";
 
 function App() {
   const isAuthenticated = localStorage.getItem("email");
@@ -89,10 +89,7 @@ function App() {
               path="/AdminPage"
               element={isAuthenticated && adminRights ? <AdminPage /> : <></>}
             />
-            <Route
-              path="/Privacy"
-              element={<PrivacyPage />}
-            />
+            <Route path="/Privacy" element={<PrivacyPage />} />
           </Routes>
         </div>
         <Footer />
