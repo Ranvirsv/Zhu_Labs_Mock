@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./HomePage.scss";
 import Modal from "react-bootstrap/Modal";
 import worldMap from "../../assets/worldMap.jpg";
-
+import { ROUTES } from "../../constants/routes";
 /**
  * ### HomePage
  *
@@ -67,7 +67,7 @@ export default function HomePage() {
       </div>
       <hr />
       <div className="mb-3">
-        <a className="linkText" href="/Supcrtbl">
+        <a className="linkText" href={ROUTES.SUPCRTBL}>
           SUPCRTBL
         </a>
       </div>
@@ -92,7 +92,7 @@ export default function HomePage() {
 
       <hr />
       <div className="mb-3">
-        <a className="linkText" href="/PHREEQC">
+        <a className="linkText" href={ROUTES.PHREEQC}>
           PHREEQC High P-T
         </a>
       </div>
@@ -134,7 +134,7 @@ export default function HomePage() {
       </p>
       <hr />
       <div className="mb-3">
-        <a className="linkText" href="/CotwoCalculator">
+        <a className="linkText" href={ROUTES.COTWO_CALCULATOR}>
           CO₂ Calculator
         </a>
       </div>
@@ -145,7 +145,7 @@ export default function HomePage() {
       </p>
       <hr />
       <div className="mb-3">
-        <a className="linkText" href="/RateCalculator">
+        <a className="linkText" href={ROUTES.RATE_CALCULATOR}>
           Rates Calculator
         </a>
       </div>
@@ -155,7 +155,7 @@ export default function HomePage() {
       </p>
       <hr />
       <div className="mb-3">
-        <a className="linkText" href="/RateScripts">
+        <a className="linkText" href={ROUTES.RATE_SCRIPTS}>
           PHREEQC BASIC Rate Scripts
         </a>
       </div>
@@ -174,7 +174,7 @@ export default function HomePage() {
 
       <hr />
       <div className="mb-3">
-        <a className="linkText" href="/H2SCalculator">
+        <a className="linkText" href={ROUTES.H2S_CALCULATOR}>
           H<sub>2</sub>S Calculator
         </a>
       </div>

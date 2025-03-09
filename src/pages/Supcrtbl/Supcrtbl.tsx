@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Container,
   Row,
@@ -8,11 +7,12 @@ import {
   Badge,
 } from "react-bootstrap";
 import "../../App.scss";
+import { ROUTES } from "../../constants/routes";
 
 const links = [
   {
     name: "Online Version of Supcrtbl",
-    url: "/SupcrtblOnlineInputFile",
+    url: ROUTES.SUPCRTBL_ONLINE_INPUT_FILE,
   },
 ];
 

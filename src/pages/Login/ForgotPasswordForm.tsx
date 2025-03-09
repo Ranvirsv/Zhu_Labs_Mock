@@ -2,6 +2,7 @@ import { sendPasswordResetEmail } from "firebase/auth";
 import { useState } from "react";
 import { auth } from "./Firebase";
 import { Form, Button } from "react-bootstrap";
+import { ROUTES } from "../../constants/routes";
 
 /**
  * ### ForgotPasswordForm
@@ -67,7 +68,7 @@ export default function ForgotPasswordForm() {
       <hr className="hr" />
       <div className="text-center">
         <p>
-          Already have an account? <a href="/Auth/Login">Login</a>
+          Already have an account? <a href={ROUTES.LOGIN}>Login</a>
         </p>
       </div>
     </Form>

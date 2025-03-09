@@ -1,4 +1,5 @@
 import "../../App.scss";
+import { ROUTES } from "../../constants/routes";
 
 const links = [
   {
@@ -56,7 +57,7 @@ export default function RateScripts() {
         phreeqc-kinetics.dat, diagenesis.dat, and geothermal.dat options for
         online ᴘʜʀᴇᴇǫᴄ. If you just need to know the value of reaction rates at
         a temperature and pH of your interest, you can use the{" "}
-        <a className="App-links__item" href="/RateCalculator">
+        <a className="App-links__item" href={ROUTES.RATE_CALCULATOR}>
           rate calculator
         </a>
         . All phases in the library are included in the calculator.

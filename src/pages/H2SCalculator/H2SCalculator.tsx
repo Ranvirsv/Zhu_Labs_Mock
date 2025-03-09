@@ -1,6 +1,5 @@
-import React from "react";
 import "../../App.scss";
-
+import { ROUTES } from "../../constants/routes";
 /**
  * Disclaimer page for the H2S solubility calculator.
  */
@@ -10,7 +9,7 @@ export default function H2SCalculator() {
       <h2>H2S SOLUBILITY CALCULATOR</h2>
       <ul>
         <li>
-          <a className="App-links__item" href="/H2SCalculatorOnline">
+          <a className="App-links__item" href={ROUTES.H2S_CALCULATOR_ONLINE}>
             <h4>
               Online <i>H</i>
               <sub>2</sub>

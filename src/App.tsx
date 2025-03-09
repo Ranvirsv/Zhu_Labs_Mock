@@ -27,9 +27,17 @@ import LoginForm from "./pages/Login/LoginForm";
 import RegistrationForm from "./pages/Login/RegisterForm";
 import ForgotPasswordForm from "./pages/Login/ForgotPasswordForm";
 
+import PrivateRoute from "./components/PrivateRoute";
+import { ROUTES } from "./constants/routes";
+
 function App() {
-  const isAuthenticated = localStorage.getItem("email");
-  const adminRights = localStorage.getItem("isAdmin");
+  /**
+   * In general, if the key-value pairs exist then the given value will be true, else
+   * false.
+   */
+  const isAuth = localStorage.getItem("email") ? true : false;
+  const isAdmin = localStorage.getItem("isAdmin") ? true : false;
+
   return (
     <Router>
       <div className="App">
@@ -44,128 +52,130 @@ function App() {
         <NavBar />
         <div className="content">
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path={ROUTES.HOME} element={<HomePage />} />
             <Route
-              path="/Supcrtbl"
+              path={ROUTES.SUPCRTBL}
               element={
-                isAuthenticated ? <Supcrtbl /> : <Navigate to="/Auth/Login" />
+                <PrivateRoute element={<Supcrtbl />} isAuthorized={isAuth} />
               }
             />
             <Route
-              path="/PHREEQC"
+              path={ROUTES.PHREEQC}
               element={
-                isAuthenticated ? <PHREEQC /> : <Navigate to="/Auth/Login" />
-              }
-            />
-            <Route
-              path="/CotwoCalculator"
-              element={
-                isAuthenticated ? (
-                  <CotwoCalculator />
-                ) : (
-                  <Navigate to="/Auth/Login" />
-                )
-              }
-            />
-            <Route
-              path="/RateCalculator"
-              element={
-                isAuthenticated ? (
-                  <RateCalculator />
-                ) : (
-                  <Navigate to="/Auth/Login" />
-                )
-              }
-            />
-            <Route
-              path="/RateScripts"
-              element={
-                isAuthenticated ? (
-                  <RateScripts />
-                ) : (
-                  <Navigate to="/Auth/Login" />
-                )
-              }
-            />
-            <Route
-              path="/H2SCalculator"
-              element={
-                isAuthenticated ? (
-                  <H2SCalculator />
-                ) : (
-                  <Navigate to="/Auth/Login" />
-                )
-              }
-            />
-            <Route
-              path="/SupcrtblOnlineInputFile"
-              element={
-                isAuthenticated ? (
-                  <SupcrtbOnlineInputFile />
-                ) : (
-                  <Navigate to="/Auth/Login" />
-                )
-              }
-            />
-            <Route
-              path="/PhreeqcOnline"
-              element={
-                isAuthenticated ? (
-                  <PhreeqcOnline />
-                ) : (
-                  <Navigate to="/Auth/Login" />
-                )
-              }
-            />
-            <Route
-              path="/SolubilityCalculator"
-              element={
-                isAuthenticated ? (
-                  <SolubilityCalculator />
-                ) : (
-                  <Navigate to="/Auth/Login" />
-                )
-              }
-            />
-            <Route
-              path="/H2SCalculatorOnline"
-              element={
-                isAuthenticated ? (
-                  <H2SCalculatorOnline />
-                ) : (
-                  <Navigate to="/Auth/Login" />
-                )
-              }
-            />
-            <Route
-              path="/RateCalculatorOnline"
-              element={
-                isAuthenticated ? (
-                  <RateCalculatorOnline />
-                ) : (
-                  <Navigate to="/Auth/Login" />
-                )
+                <PrivateRoute element={<PHREEQC />} isAuthorized={isAuth} />
               }
             />
 
             <Route
-              path="/Auth"
+              path={ROUTES.COTWO_CALCULATOR}
+              element={
+                <PrivateRoute
+                  element={<CotwoCalculator />}
+                  isAuthorized={isAuth}
+                />
+              }
+            />
+
+            <Route
+              path={ROUTES.RATE_CALCULATOR}
+              element={
+                <PrivateRoute
+                  element={<RateCalculator />}
+                  isAuthorized={isAuth}
+                />
+              }
+            />
+
+            <Route
+              path={ROUTES.RATE_SCRIPTS}
+              element={
+                <PrivateRoute element={<RateScripts />} isAuthorized={isAuth} />
+              }
+            />
+
+            <Route
+              path={ROUTES.H2S_CALCULATOR}
+              element={
+                <PrivateRoute
+                  element={<H2SCalculator />}
+                  isAuthorized={isAuth}
+                />
+              }
+            />
+
+            <Route
+              path={ROUTES.SUPCRTBL_ONLINE_INPUT_FILE}
+              element={
+                <PrivateRoute
+                  element={<SupcrtbOnlineInputFile />}
+                  isAuthorized={isAuth}
+                />
+              }
+            />
+
+            <Route
+              path={ROUTES.PHREEQC_ONLINE}
+              element={
+                <PrivateRoute
+                  element={<PhreeqcOnline />}
+                  isAuthorized={isAuth}
+                />
+              }
+            />
+
+            <Route
+              path={ROUTES.SOLUBILITY_CALCULATOR}
+              element={
+                <PrivateRoute
+                  element={<SolubilityCalculator />}
+                  isAuthorized={isAuth}
+                />
+              }
+            />
+
+            <Route
+              path={ROUTES.H2S_CALCULATOR_ONLINE}
+              element={
+                <PrivateRoute
+                  element={<H2SCalculatorOnline />}
+                  isAuthorized={isAuth}
+                />
+              }
+            />
+
+            <Route
+              path={ROUTES.RATE_CALCULATOR_ONLINE}
+              element={
+                <PrivateRoute
+                  element={<RateCalculatorOnline />}
+                  isAuthorized={isAuth}
+                />
+              }
+            />
+
+            <Route
+              path={ROUTES.AUTH}
               // If user is already logged in, just redirect them back to the home page.
-              element={isAuthenticated ? <Navigate to="/" /> : <AuthLayout />}
+              element={isAuth ? <Navigate to={ROUTES.HOME} /> : <AuthLayout />}
             >
-              <Route index element={<Navigate to="/Auth/Login" />} />
-              <Route path="/Auth/Login" element={<LoginForm />} />
-              <Route path="/Auth/Register" element={<RegistrationForm />} />
+              <Route index element={<Navigate to={ROUTES.LOGIN} />} />
+              <Route path={ROUTES.LOGIN} element={<LoginForm />} />
+              <Route path={ROUTES.REGISTER} element={<RegistrationForm />} />
               <Route
-                path="/Auth/ForgotPassword"
+                path={ROUTES.FORGOT_PASSWORD}
                 element={<ForgotPasswordForm />}
               />
             </Route>
             <Route
-              path="/AdminPage"
-              element={isAuthenticated && adminRights ? <AdminPage /> : <></>}
+              path={ROUTES.ADMIN_PAGE}
+              element={
+                <PrivateRoute
+                  element={<AdminPage />}
+                  isAuthorized={isAuth && isAdmin}
+                />
+              }
             />
-            <Route path="/Privacy" element={<PrivacyPage />} />
+            <Route path={ROUTES.PRIVACY} element={<PrivacyPage />} />
           </Routes>
         </div>
         <Footer />

@@ -1,5 +1,6 @@
 import "./NavBar.scss";
 import { useNavigate } from "react-router";
+import { ROUTES } from "../../constants/routes";
 
 /**
  * Links for the navbar. Some links are to other websites, but others are to
@@ -25,7 +26,7 @@ const navLinks = [
   },
   {
     name: "Login",
-    url: "/Auth/Login",
+    url: ROUTES.LOGIN,
   },
   {
     name: "Admin",
@@ -55,7 +56,7 @@ export default function NavBar() {
   const logout = () => {
     localStorage.removeItem("email");
     localStorage.removeItem("isAdmin");
-    navigate("/Auth/Login");
+    navigate(ROUTES.LOGIN);
   };
 
   return (

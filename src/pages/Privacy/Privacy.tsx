@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "./Privacy.scss";
-
+import { ROUTES } from "../../constants/routes";
 /**
  * ### PrivacyPage
  *
@@ -13,7 +13,7 @@ const PrivacyPage: React.FC = () => {
       <Row className="justify-content-center mt-4">
         <Col md={10} lg={8} className="mx-auto">
           <div className="privacy-logo">Zhu Applications</div>
-          <a href="/" className="privacy-home-link">
+          <a href={ROUTES.HOME} className="privacy-home-link">
             Home
           </a>
           <p>

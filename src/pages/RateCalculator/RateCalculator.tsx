@@ -1,6 +1,5 @@
-import React from "react";
 import "../../App.scss";
-
+import { ROUTES } from "../../constants/routes";
 /**
  * ### RateCalculator
  *
@@ -12,7 +11,7 @@ export default function RateCalculator() {
       <h2>Geochemical Reaction Rate Calculator</h2>
       <ul>
         <li>
-          <a className="App-links__item" href="/RateCalculatorOnline">
+          <a className="App-links__item" href={ROUTES.RATE_CALCULATOR_ONLINE}>
             <h4>Online Rate Calculator</h4>
           </a>
         </li>

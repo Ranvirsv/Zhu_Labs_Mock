@@ -8,6 +8,8 @@ import {
 } from "firebase/auth";
 import { auth } from "./Firebase";
 import TermsAndConditionsModal from "./TermsAndConditionsModal";
+import { ROUTES } from "../../constants/routes";
+
 /**
  * ### RegistrationForm
  * Component representing the user registration form.
@@ -118,7 +120,7 @@ export default function RegistrationForm() {
       alert("Login Success: Verification email sent. Please check your inbox.");
 
       // Redirect to the login page; no need to clear error message or anything since this component is going to be unmounted
-      navigate("/Auth/Login");
+      navigate(ROUTES.LOGIN);
     } catch (error) {
       console.error("User Registration Error: ", error);
       setErrorMessage("User registration failed!");
@@ -266,7 +268,7 @@ export default function RegistrationForm() {
 
       <div className="text-center">
         <p>
-          Already have an account? <a href="/Auth/Login">Login</a>
+          Already have an account? <a href={ROUTES.LOGIN}>Login</a>
         </p>
       </div>
 

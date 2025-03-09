@@ -1,5 +1,5 @@
 import "../../App.scss";
-
+import { ROUTES } from "../../constants/routes";
 /**
  * ### CotwoCalculator (Co2 Calculator)
  *
@@ -11,7 +11,7 @@ export default function CotwoCalculator() {
       <h2>CO2 SOLUBILITY CALCULATOR</h2>
       <ul>
         <li>
-          <a className="App-links__item" href="/SolubilityCalculator">
+          <a className="App-links__item" href={ROUTES.SOLUBILITY_CALCULATOR}>
             <h4>Online CO2 Solubility Calculator</h4>
           </a>
         </li>

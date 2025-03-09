@@ -1,10 +1,11 @@
 import React from "react";
 import "../../App.scss";
+import { ROUTES } from "../../constants/routes";
 
 const links = [
   {
     name: "Click here to use the online version of ᴘʜʀᴇᴇǫᴄ High T P",
-    url: "/PhreeqcOnline",
+    url: ROUTES.PHREEQC_ONLINE,
   },
   // {
   //   name: "Version 3 Documentation by Parkhurst and Appelo (2013)",

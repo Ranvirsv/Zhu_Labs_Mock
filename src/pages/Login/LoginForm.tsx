@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { auth } from "./Firebase";
 import { useNavigate } from "react-router";
-
+import { ROUTES } from "../../constants/routes";
 /**
  * ### LoginForm
  * Component representing the user login form.
@@ -90,7 +90,7 @@ export default function LoginForm() {
 
       // Redirect to the home page
       // NOTE: Since LoginForm is unmounted, we don't need to clear the error message as that's cleared when component unmounts.
-      navigate("/");
+      navigate(ROUTES.HOME);
     } catch (error) {
       console.error("Failed to login: ", error);
       setErrorMessage("Failed to login. Please try again later.");
@@ -143,9 +143,9 @@ export default function LoginForm() {
       {/* Links to other pages */}
       <div>
         <p>
-          Don't have an account? <a href="/Auth/Register">Register here</a>
+          Don't have an account? <a href={ROUTES.REGISTER}>Register here</a>
         </p>
-        <a href="/Auth/ForgotPassword">Forgot your password? </a>
+        <a href={ROUTES.FORGOT_PASSWORD}>Forgot your password? </a>
       </div>
     </Form>
   );
