@@ -1,6 +1,11 @@
 import "./App.scss";
 import iublogo from "./assets/iublogo.png";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import NavBar from "./components/NavBar/NavBar";
 import Supcrtbl from "./pages/Supcrtbl/Supcrtbl";
@@ -14,10 +19,13 @@ import PhreeqcOnline from "./pages/PHREEQC/PhreeqcOnline";
 import SolubilityCalculator from "./pages/SolubilityCalculator/SolubilityCalculator";
 import H2SCalculatorOnline from "./pages/H2SCalculator/H2SCalculatorOnline";
 import RateCalculatorOnline from "./pages/RateCalculator/RateCalculatorOnline";
-import Login from "./pages/Login/Login";
 import AdminPage from "./pages/Admin/AdminPage";
 import Footer from "./Footer";
 import PrivacyPage from "./pages/Privacy/Privacy";
+import AuthLayout from "./pages/Login/AuthLayout";
+import LoginForm from "./pages/Login/LoginForm";
+import RegistrationForm from "./pages/Login/RegisterForm";
+import ForgotPasswordForm from "./pages/Login/ForgotPasswordForm";
 
 function App() {
   const isAuthenticated = localStorage.getItem("email");
@@ -39,52 +47,120 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route
               path="/Supcrtbl"
-              element={isAuthenticated ? <Supcrtbl /> : <Login />}
+              element={
+                isAuthenticated ? <Supcrtbl /> : <Navigate to="/Auth/Login" />
+              }
             />
             <Route
               path="/PHREEQC"
-              element={isAuthenticated ? <PHREEQC /> : <Login />}
+              element={
+                isAuthenticated ? <PHREEQC /> : <Navigate to="/Auth/Login" />
+              }
             />
             <Route
               path="/CotwoCalculator"
-              element={isAuthenticated ? <CotwoCalculator /> : <Login />}
+              element={
+                isAuthenticated ? (
+                  <CotwoCalculator />
+                ) : (
+                  <Navigate to="/Auth/Login" />
+                )
+              }
             />
             <Route
               path="/RateCalculator"
-              element={isAuthenticated ? <RateCalculator /> : <Login />}
+              element={
+                isAuthenticated ? (
+                  <RateCalculator />
+                ) : (
+                  <Navigate to="/Auth/Login" />
+                )
+              }
             />
             <Route
               path="/RateScripts"
-              element={isAuthenticated ? <RateScripts /> : <Login />}
+              element={
+                isAuthenticated ? (
+                  <RateScripts />
+                ) : (
+                  <Navigate to="/Auth/Login" />
+                )
+              }
             />
             <Route
               path="/H2SCalculator"
-              element={isAuthenticated ? <H2SCalculator /> : <Login />}
+              element={
+                isAuthenticated ? (
+                  <H2SCalculator />
+                ) : (
+                  <Navigate to="/Auth/Login" />
+                )
+              }
             />
             <Route
               path="/SupcrtblOnlineInputFile"
-              element={isAuthenticated ? <SupcrtbOnlineInputFile /> : <Login />}
+              element={
+                isAuthenticated ? (
+                  <SupcrtbOnlineInputFile />
+                ) : (
+                  <Navigate to="/Auth/Login" />
+                )
+              }
             />
             <Route
               path="/PhreeqcOnline"
-              element={isAuthenticated ? <PhreeqcOnline /> : <Login />}
+              element={
+                isAuthenticated ? (
+                  <PhreeqcOnline />
+                ) : (
+                  <Navigate to="/Auth/Login" />
+                )
+              }
             />
             <Route
               path="/SolubilityCalculator"
-              element={isAuthenticated ? <SolubilityCalculator /> : <Login />}
+              element={
+                isAuthenticated ? (
+                  <SolubilityCalculator />
+                ) : (
+                  <Navigate to="/Auth/Login" />
+                )
+              }
             />
             <Route
               path="/H2SCalculatorOnline"
-              element={isAuthenticated ? <H2SCalculatorOnline /> : <Login />}
+              element={
+                isAuthenticated ? (
+                  <H2SCalculatorOnline />
+                ) : (
+                  <Navigate to="/Auth/Login" />
+                )
+              }
             />
             <Route
               path="/RateCalculatorOnline"
-              element={isAuthenticated ? <RateCalculatorOnline /> : <Login />}
+              element={
+                isAuthenticated ? (
+                  <RateCalculatorOnline />
+                ) : (
+                  <Navigate to="/Auth/Login" />
+                )
+              }
             />
+
             <Route
-              path="/Login"
-              element={isAuthenticated ? <HomePage /> : <Login />}
-            />
+              path="/Auth"
+              // If user is already logged in, just redirect them back to the home page.
+              element={isAuthenticated ? <Navigate to="/" /> : <AuthLayout />}
+            >
+              <Route index element={<Navigate to="/Auth/Login" />} />
+              <Route path="/Auth/Login" element={<LoginForm />} />
+              <Route path="/Auth/Register" element={<RegistrationForm />} />
+              <Route
+                path="/Auth/ForgotPassword"
+                element={<ForgotPasswordForm />}
+              />
+            </Route>
             <Route
               path="/AdminPage"
               element={isAuthenticated && adminRights ? <AdminPage /> : <></>}
