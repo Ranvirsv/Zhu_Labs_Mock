@@ -1,0 +1,21 @@
+.authLayout {
+  background-color: rgb(51, 50, 50);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.formCard {
+  padding: 36px;
+}
+
+.card {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px;
+}
+
+.text-danger {
+  font-size: small;
+}

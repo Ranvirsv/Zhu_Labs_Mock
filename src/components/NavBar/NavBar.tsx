@@ -25,7 +25,7 @@ const navLinks = [
   },
   {
     name: "Login",
-    url: "/Login",
+    url: "/Auth/Login",
   },
   {
     name: "Admin",
@@ -55,7 +55,7 @@ export default function NavBar() {
   const logout = () => {
     localStorage.removeItem("email");
     localStorage.removeItem("isAdmin");
-    navigate("/Login");
+    navigate("/Auth/Login");
   };
 
   return (
